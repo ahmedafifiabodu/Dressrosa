@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
+    [Range(0, 0.9f)][SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] private Animator _animator;
 
     private InputSystem _playerInput;
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 lastMoveDirection;
     private bool facingLeft = false;
+    private PlayerInformation _playerInformation;
+    private float _timeSinceLastMove = 0;
 
     private void Awake()
     {
@@ -31,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         //};
     }
 
+    private void Start() => _playerInformation = PlayerInformation.Instance;
+
     private void FixedUpdate() => ProcessMove(_playerActions.Movement.ReadValue<Vector2>());
 
     private void OnEnable() => _playerActions.Enable();
@@ -39,11 +44,50 @@ public class PlayerMovement : MonoBehaviour
 
     internal void ProcessMove(Vector2 _input)
     {
+        //To Make the player to stop from movement when out of stamina
+        /*        if (_playerInformation.IsOutOfStamina)
+                {
+                    _input = Vector2.zero;
+                }
+                else
+                {
+                    float moveX = _input.x;
+                    float moveY = _input.y;
+
+                    if (moveX != 0 || moveY != 0)
+                    {
+                        lastMoveDirection = _input;
+                        _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
+                    }
+                }*/
+
         float moveX = _input.x;
         float moveY = _input.y;
 
         if (moveX != 0 || moveY != 0)
+        {
             lastMoveDirection = _input;
+            _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
+            _timeSinceLastMove = 0;
+        }
+        else
+        {
+            _timeSinceLastMove += Time.fixedDeltaTime;
+            if (_timeSinceLastMove >= 0.5f)
+            {
+                _playerInformation.RechargeStamina(Time.fixedDeltaTime);
+            }
+        }
+
+        if (_playerInformation.IsOutOfStamina)
+        {
+            _input *= 0.5f;
+            _animator.speed = 0.5f;
+        }
+        else
+        {
+            _animator.speed = 1f;
+        }
 
         _rb.velocity = _input * _speed;
         Animate(_input);
