@@ -17,6 +17,7 @@ public class Inputmanager : MonoBehaviour
         _playerActions.Fire.performed += _ => _playerMovement.Fire();
         _playerActions.Quest.performed += _ => _questManager.SetActiveForQuestPanel(true);
 
+
         /*        _onFoot.Switch.performed += ctx =>
                 {
                     var scroll = ctx.ReadValue<float>();
