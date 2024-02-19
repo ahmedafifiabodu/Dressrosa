@@ -17,7 +17,7 @@ MonoBehaviour:
   objectives:
   - objectiveName: FInd The Key
     description: You have to find the key. Try search around you house.
-    isCompleted: 0
+    isCompleted: 1
   - objectiveName: Destory The Stone
     description: Clue #2
     isCompleted: 0

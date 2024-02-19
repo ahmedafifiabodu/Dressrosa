@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Inputmanager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerIsometricMovement _playerMovement;
     [SerializeField] private QuestManager _questManager;
 
-    private InputSystem _playerInput;
+    internal InputSystem _playerInput;
     private InputSystem.PlayerActions _playerActions;
 
     private void Awake()
@@ -16,7 +16,6 @@ public class Inputmanager : MonoBehaviour
 
         _playerActions.Fire.performed += _ => _playerMovement.Fire();
         _playerActions.Quest.performed += _ => _questManager.SetActiveForQuestPanel(true);
-
 
         /*        _onFoot.Switch.performed += ctx =>
                 {

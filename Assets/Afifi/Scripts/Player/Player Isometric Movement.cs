@@ -7,40 +7,12 @@ public class PlayerIsometricMovement : MonoBehaviour
     [Range(0, 0.9f)][SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] private Animator _animator;
 
-    private InputSystem _playerInput;
-    private InputSystem.PlayerActions _playerActions;
-
     private Vector2 lastMoveDirection;
     private bool facingLeft = false;
     private PlayerInformation _playerInformation;
     private float _timeSinceLastMove = 0;
 
-    private void Awake()
-    {
-        _playerInput = new InputSystem();
-
-        _playerActions = _playerInput.Player;
-
-        _playerActions.Fire.performed += _ => Fire();
-
-        //_onFoot.Switch.performed += ctx =>
-        //{
-        //    var scroll = ctx.ReadValue<float>();
-
-        //    if (scroll > 0)
-        //        _playerShooting.SwitchToNextWeapon();
-        //    else if (scroll < 0)
-        //        _playerShooting.SwitchToPreviousWeapon();
-        //};
-    }
-
     private void Start() => _playerInformation = PlayerInformation.Instance;
-
-    private void FixedUpdate() => ProcessMove(_playerActions.Movement.ReadValue<Vector2>());
-
-    private void OnEnable() => _playerActions.Enable();
-
-    private void OnDisable() => _playerActions.Disable();
 
     internal void ProcessMove(Vector2 _input)
     {
@@ -68,7 +40,7 @@ public class PlayerIsometricMovement : MonoBehaviour
         float isoMoveX = (moveX - moveY) / 2;
         float isoMoveY = (moveX + moveY) / 2;
 
-        Vector2 isoInput = new Vector2(isoMoveX, isoMoveY);
+        Vector2 isoInput = new(isoMoveX, isoMoveY);
 
         if (isoMoveX != 0 || isoMoveY != 0)
         {

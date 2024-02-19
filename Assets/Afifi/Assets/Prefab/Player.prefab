@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 2527249039051582163}
   - component: {fileID: 1426654143429596165}
   - component: {fileID: 8207736085122423742}
-  - component: {fileID: 1776198592309558610}
   - component: {fileID: 717562231888409869}
   - component: {fileID: 4764186123002202594}
+  - component: {fileID: 1230106137331031339}
+  - component: {fileID: 8101675410751556127}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,22 +184,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1776198592309558610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089339775691109130}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11a0760907375d459458e1fdc5218b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 1426654143429596165}
-  _speed: 5
-  _crippledSpeed: 0.5
-  _animator: {fileID: 8207736085122423742}
 --- !u!114 &717562231888409869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +215,29 @@ MonoBehaviour:
   _speed: 5
   _crippledSpeed: 0.5
   _animator: {fileID: 8207736085122423742}
+--- !u!114 &1230106137331031339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089339775691109130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00563d6812771d045a18caa56e1876e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8101675410751556127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089339775691109130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31621770ed724840b4372653520fb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputManager: {fileID: 0}
+  _promptMessage: {fileID: 0}

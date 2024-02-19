@@ -16,6 +16,19 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _objectiveName;
     [SerializeField] private TextMeshProUGUI _objectiveDescription;
 
+    internal void ResetQuests()
+    {
+        foreach (var quest in quests)
+        {
+            foreach (var objective in quest.objectives)
+            {
+                objective.isCompleted = false;
+            }
+        }
+    }
+
+    private void Start() => ResetQuests();
+
     internal int GetActiveQuestIndex()
     {
         for (int i = 0; i < quests.Count; i++)
@@ -45,7 +58,7 @@ public class QuestManager : MonoBehaviour
         quest.objectives[objectiveIndex].isCompleted = isCompleted;
     }
 
-    public void UpdateUI()
+    private void UpdateUI()
     {
         int activeQuestIndex = GetActiveQuestIndex();
         if (activeQuestIndex != -1)
