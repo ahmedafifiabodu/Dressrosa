@@ -19,9 +19,13 @@ public class CameraZoomInAndZoomOut : MonoBehaviour
 
     private float waitCounter;
 
-    private void ZoomIn() => virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, zoomSize, zoomSpeed * Time.deltaTime);
+    private void ZoomIn() =>
+        virtualCamera.m_Lens.OrthographicSize =
+        Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, zoomSize, zoomSpeed * Time.deltaTime);
 
-    private void ZoomOut() => virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, maxZoomOut, zoomSpeed * Time.deltaTime);
+    private void ZoomOut() =>
+        virtualCamera.m_Lens.OrthographicSize =
+        Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, maxZoomOut, zoomSpeed * Time.deltaTime);
 
     private void CameraUpdate()
     {
