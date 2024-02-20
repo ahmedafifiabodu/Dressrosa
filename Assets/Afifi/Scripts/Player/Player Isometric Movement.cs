@@ -36,7 +36,7 @@ public class PlayerIsometricMovement : MonoBehaviour
         float moveX = _input.x;
         float moveY = _input.y;
 
-        // Adjust for isometric movement
+        //Adjust for isometric movement
         float isoMoveX = (moveX - moveY) / 2;
         float isoMoveY = (moveX + moveY) / 2;
 
@@ -59,8 +59,8 @@ public class PlayerIsometricMovement : MonoBehaviour
 
         if (_playerInformation.IsOutOfStamina)
         {
-            isoInput *= 0.5f;
-            _animator.speed = 0.5f;
+            isoInput *= _crippledSpeed;
+            _animator.speed = _crippledSpeed;
         }
         else
         {
@@ -78,13 +78,13 @@ public class PlayerIsometricMovement : MonoBehaviour
 
     private void Animate(Vector2 _input)
     {
-        _animator.SetFloat("Move X", _input.x);
-        _animator.SetFloat("Move Y", _input.y);
+        _animator.SetFloat(GameConstant.MOVEX, _input.x);
+        _animator.SetFloat(GameConstant.MOVEY, _input.y);
 
-        _animator.SetFloat("Move Magnitude", _input.magnitude);
+        _animator.SetFloat(GameConstant.MOVEMAGNITUDE, _input.magnitude);
 
-        _animator.SetFloat("Last Move X", lastMoveDirection.x);
-        _animator.SetFloat("Last Move Y", lastMoveDirection.y);
+        _animator.SetFloat(GameConstant.LASTMOVEX, lastMoveDirection.x);
+        _animator.SetFloat(GameConstant.LASTMOVEY, lastMoveDirection.y);
     }
 
     private void Flip()
