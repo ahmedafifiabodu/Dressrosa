@@ -5,6 +5,7 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
     [Range(0, 0.9f)][SerializeField] private float _crippledSpeed = 0.5f;
+    [SerializeField] TimeTravel_System travelEffecrt;
     [SerializeField] private Animator _animator;
 
     private Vector2 lastMoveDirection;
@@ -12,7 +13,10 @@ public class PlayerIsometricMovement : MonoBehaviour
     private PlayerInformation _playerInformation;
     private float _timeSinceLastMove = 0;
 
-    private void Start() => _playerInformation = PlayerInformation.Instance;
+    private void Start()
+    {
+        _playerInformation = PlayerInformation.Instance;
+    }
 
     internal void ProcessMove(Vector2 _input)
     {
