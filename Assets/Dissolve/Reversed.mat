@@ -55,12 +55,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _DissolveAmount: 0
-    - _DissolveScale: 0
+    - _DissolveScale: 300
     - _DissolveSize: 0
     - _FlashAmount: 0.01
-    - _Offset: 1.05
+    - _Offset: 0.72
     m_Colors:
     - _2D_Position: {r: 0, g: 0, b: 0, a: 0}
-    - _DissolveColor: {r: 0, g: 51.271145, b: 80.7503, a: 1}
+    - _DissolveColor: {r: 0, g: 143.9321, b: 94.56227, a: 1}
     - _FlashColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

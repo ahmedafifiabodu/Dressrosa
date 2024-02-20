@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.13
   scatter:
     m_OverrideState: 1
     m_Value: 0.34
@@ -30,7 +30,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.42855215, b: 1, a: 1}
+    m_Value: {r: 0, g: 0.42745113, b: 1, a: 1}
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 0
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: -3055942662153603774}
-  - {fileID: 7024986339978073629}
---- !u!114 &7024986339978073629
+  - {fileID: 4230928760455559640}
+--- !u!114 &4230928760455559640
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   postExposure:
     m_OverrideState: 0
     m_Value: 0
@@ -88,5 +88,5 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   saturation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
