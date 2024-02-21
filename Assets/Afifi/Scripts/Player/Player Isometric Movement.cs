@@ -6,8 +6,9 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private DialogManager dialogManager;
 
     [Header("Movement")]
-    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private bool _invertDirection = false;
 
+    [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
     [Range(0, 0.9f)][SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] private Animator _animator;
@@ -30,6 +31,9 @@ public class PlayerIsometricMovement : MonoBehaviour
 
             return;
         }
+
+        if (_invertDirection)
+            _input = -_input;
 
         //To Make the player to stop from movement when out of stamina
         /*        if (_playerInformation.IsOutOfStamina)
