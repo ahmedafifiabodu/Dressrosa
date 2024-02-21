@@ -1,2 +1,0 @@
-﻿Hello 
-How are you ?

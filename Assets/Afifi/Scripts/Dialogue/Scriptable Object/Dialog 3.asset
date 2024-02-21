@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52ad11fb836ad5e4e917c518f829d7df, type: 3}
-  m_Name: Dialog Object
+  m_Name: Dialog 3
   m_EditorClassIdentifier: 
   DialogText:
-  - hello
-  - FFFFFFFFF
+  - hello 3
+  - bye 3
   IsLoopable: 0
   IsOrdered: 1
   NextDialog: {fileID: 0}

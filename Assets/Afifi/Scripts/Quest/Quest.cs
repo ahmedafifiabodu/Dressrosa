@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Quest", menuName = "Quest")]
+[CreateAssetMenu(fileName = "New Quest", menuName = "Scriptable Object/Quest")]
 public class Quest : ScriptableObject
 {
     [SerializeField] internal Sprite icon;
     [SerializeField] internal string questName;
     [SerializeField] internal List<Objective> objectives = new();
+
+    internal bool isStarted = false;
 
     internal bool IsCompleted
     {

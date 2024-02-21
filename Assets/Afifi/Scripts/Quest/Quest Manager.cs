@@ -33,7 +33,8 @@ public class QuestManager : MonoBehaviour
     {
         for (int i = 0; i < quests.Count; i++)
         {
-            if (!quests[i].IsCompleted)
+            // Check if the quest has been started and is not completed
+            if (quests[i].isStarted && !quests[i].IsCompleted)
                 return i;
         }
         return -1;
@@ -61,6 +62,7 @@ public class QuestManager : MonoBehaviour
     private void UpdateUI()
     {
         int activeQuestIndex = GetActiveQuestIndex();
+
         if (activeQuestIndex != -1)
         {
             Quest activeQuest = quests[activeQuestIndex];
@@ -73,11 +75,33 @@ public class QuestManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No active quest");
+            // Clear the UI fields if there is no active quest
+            _questIcon.sprite = null;
+            _questName.text = "";
+            _objectiveName.text = "";
+            _objectiveDescription.text = "";
         }
     }
 
     internal void SetActiveForQuestPanel(bool _setActive) => _questCanvas.SetActive(_setActive);
+
+    internal void StartQuest(int questIndex)
+    {
+        if (questIndex < 0 || questIndex >= quests.Count)
+        {
+            Debug.LogError("Invalid quest index");
+            return;
+        }
+
+        // Mark the quest as started
+        quests[questIndex].isStarted = true;
+
+        // Reset the quest
+        foreach (var objective in quests[questIndex].objectives)
+        {
+            objective.isCompleted = false;
+        }
+    }
 
     private void Update() => UpdateUI();
 }

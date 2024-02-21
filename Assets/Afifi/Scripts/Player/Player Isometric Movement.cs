@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class PlayerIsometricMovement : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private DialogManager dialogManager;
+
+    [Header("Movement")]
     [SerializeField] private Rigidbody2D _rb;
+
     [SerializeField] private float _speed = 5f;
     [Range(0, 0.9f)][SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] private Animator _animator;
@@ -16,6 +21,10 @@ public class PlayerIsometricMovement : MonoBehaviour
 
     internal void ProcessMove(Vector2 _input)
     {
+        // Ignore movement input if a dialog is active
+        if (dialogManager.IsDialogActive)
+            return;
+
         //To Make the player to stop from movement when out of stamina
         /*        if (_playerInformation.IsOutOfStamina)
                 {
