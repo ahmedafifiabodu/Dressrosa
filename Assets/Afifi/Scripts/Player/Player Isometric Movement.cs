@@ -4,7 +4,7 @@ public class PlayerIsometricMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
-    [Range(0, 0.9f)][SerializeField] private float _crippledSpeed = 0.5f;
+    [SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] TimeTravel_System travelEffecrt;
     [SerializeField] private Animator _animator;
 
@@ -12,6 +12,9 @@ public class PlayerIsometricMovement : MonoBehaviour
     private bool facingLeft = false;
     private PlayerInformation _playerInformation;
     private float _timeSinceLastMove = 0;
+
+    private float isoMoveX;
+    private float isoMoveY;
 
     private void Start()
     {
@@ -41,30 +44,27 @@ public class PlayerIsometricMovement : MonoBehaviour
         float moveY = _input.y;
 
         // Adjust for isometric movement
-        float isoMoveX = (moveX - moveY) / 2;
-        float isoMoveY = (moveX + moveY) / 2;
+        isoMoveX = (moveX - moveY) / 2;
+        isoMoveY = (moveX + moveY) / 2;
 
         Vector2 isoInput = new(isoMoveX, isoMoveY);
 
         if (isoMoveX != 0 || isoMoveY != 0)
         {
             lastMoveDirection = isoInput;
-            _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
-            _timeSinceLastMove = 0;
-        }
-        else
-        {
-            _timeSinceLastMove += Time.fixedDeltaTime;
-            if (_timeSinceLastMove >= 0.5f)
-            {
-                _playerInformation.RechargeStamina(Time.fixedDeltaTime);
-            }
         }
 
-        if (_playerInformation.IsOutOfStamina)
+        if (travelEffecrt.effectActivated)
         {
-            isoInput *= _crippledSpeed;
+            //isoInput *= _crippledSpeed;
+            _rb.drag += Mathf.Abs(isoInput.x) * Time.deltaTime * _crippledSpeed;
+            _rb.drag += Mathf.Abs(isoInput.y) * Time.deltaTime * _crippledSpeed;
             _animator.speed = _crippledSpeed;
+            if (_playerInformation.IsOutOfStamina)
+            {
+                _rb.drag = 0;
+                travelEffecrt.effectActivated = false;
+            }
         }
         else
         {
@@ -73,11 +73,24 @@ public class PlayerIsometricMovement : MonoBehaviour
 
         _rb.velocity = isoInput * _speed;
         Animate(isoInput);
+        stamina();
 
         //if (_input.x < 0 && !facingLeft || _input.x > 0 && facingLeft)
         //{
         //    Flip();
         //}
+    }
+
+    private void stamina()
+    {
+        if (travelEffecrt.effectActivated && (isoMoveX != 0 || isoMoveY != 0))
+        {
+            _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
+        }
+        else if(!travelEffecrt.effectActivated)
+        {
+            _playerInformation.RechargeStamina(Time.fixedDeltaTime);
+        }
     }
 
     private void Animate(Vector2 _input)

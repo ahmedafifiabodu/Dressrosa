@@ -34,8 +34,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0465202, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _stamina: 286
+  _stamina: 10
   _energy: 10
 --- !u!114 &4764186123002202594
 MonoBehaviour:
@@ -212,8 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1426654143429596165}
-  _speed: 5
-  _crippledSpeed: 0.5
+  _speed: 1
+  _crippledSpeed: 6
+  travelEffecrt: {fileID: 0}
   _animator: {fileID: 8207736085122423742}
 --- !u!114 &1230106137331031339
 MonoBehaviour:

@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeTravel_System : MonoBehaviour
 {
     private DistanceShader _travelEffect;
     [SerializeField] private Transform player;
     [SerializeField] private float smoothTime;
+    public Slider staminaBar;
     public bool effectActivated;
     private float velocity;
     // Start is called before the first frame update
     void Start()
     {
         effectActivated = false;
+        staminaBar.maxValue = PlayerInformation.Instance._stamina;
         _travelEffect = GetComponent<DistanceShader>();
     }
 
@@ -29,8 +32,10 @@ public class TimeTravel_System : MonoBehaviour
 
     private void TravelEffect()
     {
+        staminaBar.value = PlayerInformation.Instance._stamina;
         if(effectActivated)
         {
+            staminaBar.gameObject.SetActive(true);
             _travelEffect.playerPosition = player.position;
             _travelEffect.distanceValue = Mathf.SmoothDamp(_travelEffect.distanceValue, 1, ref velocity, smoothTime);
         }
@@ -38,6 +43,10 @@ public class TimeTravel_System : MonoBehaviour
         {
             _travelEffect.playerPosition = player.position;
             _travelEffect.distanceValue = Mathf.SmoothDamp(_travelEffect.distanceValue, 0, ref velocity, smoothTime);
+            if(_travelEffect.distanceValue < 0.9f)
+            {
+                staminaBar.gameObject.SetActive(false);
+            }
         }
     }
 }
