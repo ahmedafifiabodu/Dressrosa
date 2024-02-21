@@ -14,8 +14,6 @@ public class DialogController : MonoBehaviour
 
     internal void OnInteract()
     {
-        Debug.Log("Interact! Dialog");
-
         // Call OnDialogStart when a dialog starts
         dialogManager.OnDialogStart();
 

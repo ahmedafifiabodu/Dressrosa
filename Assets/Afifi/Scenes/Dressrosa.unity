@@ -256,6 +256,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1301170384}
     - target: {fileID: 7864971104491656766, guid: 1cf6cb399e7c9bb4faaf6248f5c31a66, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1301170384}
+    - target: {fileID: 7864971104491656766, guid: 1cf6cb399e7c9bb4faaf6248f5c31a66, type: 3}
       propertyPath: _inputManager
       value: 
       objectReference: {fileID: 787120259}
@@ -2151,20 +2155,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1229042506}
     m_ColliderPaths:
-    - - X: 50000000
-        Y: 50000000
-      - X: -50000000
-        Y: 50000000
-      - X: -50000000
-        Y: -50000000
-      - X: 50000000
-        Y: -50000000
+    - - X: 25000000
+        Y: 25000000
+      - X: -25000000
+        Y: 25000000
+      - X: -25000000
+        Y: -25000000
+      - X: 25000000
+        Y: -25000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 4.999971, y: -5}
-      - {x: 4.999971, y: 5}
-      - {x: -5, y: 4.999971}
-      - {x: -4.999971, y: -5}
+    - - {x: 2.499971, y: -2.5}
+      - {x: 2.499971, y: 2.5}
+      - {x: -2.5, y: 2.499971}
+      - {x: -2.499971, y: -2.5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -2206,7 +2210,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -3629,6 +3633,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8101675410751556127, guid: e249f185cf232ab4f8354940313c70c3, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1301170384}
     - target: {fileID: 8101675410751556127, guid: e249f185cf232ab4f8354940313c70c3, type: 3}
       propertyPath: _inputManager
       value: 

@@ -23,7 +23,13 @@ public class PlayerIsometricMovement : MonoBehaviour
     {
         // Ignore movement input if a dialog is active
         if (dialogManager.IsDialogActive)
+        {
+            _rb.velocity = Vector2.zero;
+
+            Animate(Vector2.zero);
+
             return;
+        }
 
         //To Make the player to stop from movement when out of stamina
         /*        if (_playerInformation.IsOutOfStamina)

@@ -5,44 +5,46 @@ public class PlayerInteractable : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private TextMeshProUGUI _promptMessage;
+    [SerializeField] private QuestManager questManager;
 
     private Interactable _currentInteractable;
-
     private DialogController _currentDialog;
 
     private void Update()
     {
         if (_currentInteractable != null && _inputManager._playerInput.Player.Interact.triggered)
-        {
-            Debug.Log("Interacting with " + _currentInteractable.name);
             _currentInteractable.BaseInteract();
-        }
 
         if (_currentDialog != null && _inputManager._playerInput.Player.Interact.triggered)
-        {
-            Debug.Log("Interacting with Dialog " + _currentDialog.name);
             _currentDialog.OnInteract();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Interactable>(out var _interactable) &&
-            collision.TryGetComponent<DialogController>(out var _dialogController))
+        int activeQuestIndex = questManager.GetActiveQuestIndex();
+
+        if (collision.TryGetComponent<Interactable>(out var _interactable))
         {
-            if (_dialogController.enabled)
+            if (collision.TryGetComponent<DialogController>(out var _dialogController))
             {
+                Debug.Log("Active Quest Index: " + activeQuestIndex);
+                Debug.Log("DialogController enabled: " + _dialogController.enabled);
+                // If there's an active quest and the DialogController is enabled, allow interaction
+                if (activeQuestIndex == -1 && _dialogController.enabled)
+                {
+                    _promptMessage.gameObject.SetActive(true);
+                    _promptMessage.text = _interactable._promptMessage;
+                    _currentInteractable = _interactable;
+                    _currentDialog = _dialogController;
+                }
+            }
+            else
+            {
+                // If there's no DialogController, allow interaction regardless of whether there's an active quest
                 _promptMessage.gameObject.SetActive(true);
                 _promptMessage.text = _interactable._promptMessage;
                 _currentInteractable = _interactable;
-                _currentDialog = _dialogController;
             }
-        }
-        else if (collision.TryGetComponent(out _interactable))
-        {
-            _promptMessage.gameObject.SetActive(true);
-            _promptMessage.text = _interactable._promptMessage;
-            _currentInteractable = _interactable;
         }
     }
 
@@ -50,8 +52,11 @@ public class PlayerInteractable : MonoBehaviour
     {
         if (collision.TryGetComponent<Interactable>(out _))
         {
-            _promptMessage.text = string.Empty;
-            _promptMessage.gameObject.SetActive(false);
+            if (_promptMessage != null)
+            {
+                _promptMessage.text = string.Empty;
+                _promptMessage.gameObject.SetActive(false);
+            }
             _currentInteractable = null;
         }
 

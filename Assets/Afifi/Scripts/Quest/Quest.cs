@@ -8,8 +8,6 @@ public class Quest : ScriptableObject
     [SerializeField] internal string questName;
     [SerializeField] internal List<Objective> objectives = new();
 
-    internal bool isStarted = false;
-
     internal bool IsCompleted
     {
         get
@@ -22,6 +20,8 @@ public class Quest : ScriptableObject
             return true;
         }
     }
+
+    internal bool IsActive { get; set; }
 
     internal int GetActiveObjectiveIndex()
     {
