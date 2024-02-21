@@ -20,6 +20,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var quest in quests)
         {
+            quest.isStarted = false;
             foreach (var objective in quest.objectives)
             {
                 objective.isCompleted = false;

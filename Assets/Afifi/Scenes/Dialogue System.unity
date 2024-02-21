@@ -3051,10 +3051,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialog System
       objectReference: {fileID: 0}
+    - target: {fileID: 6578973710585519110, guid: 1cf6cb399e7c9bb4faaf6248f5c31a66, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1301170384}
     - target: {fileID: 7864971104491656766, guid: 1cf6cb399e7c9bb4faaf6248f5c31a66, type: 3}
       propertyPath: _inputManager
       value: 
       objectReference: {fileID: 787120259}
+    - target: {fileID: 8367761979065830010, guid: 1cf6cb399e7c9bb4faaf6248f5c31a66, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1301170384}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
