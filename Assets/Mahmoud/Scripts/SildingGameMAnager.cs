@@ -111,10 +111,10 @@ public class SildingGameMAnager : MonoBehaviour
 
 	private IEnumerator EnablePuzzleTextureAfterDelay(float delay)
 	{
-		isWin = true;
 		yield return new WaitForSeconds(delay);
 		puzzleTexture.SetActive(true);
-		foreach (var piece in pieces)
+        isWin = true;
+        foreach (var piece in pieces)
 		{
 			piece.gameObject.SetActive(false);
 		}
