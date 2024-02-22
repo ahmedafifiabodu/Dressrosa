@@ -1272,6 +1272,8 @@ MonoBehaviour:
   dialogManager: {fileID: 7864971104491656766}
   DialogUI: {fileID: 4389597463433722374}
   CurrentDialogObject: {fileID: 11400000, guid: 0f8df991d626d4747b65f19eaedd0a16, type: 2}
+  questManager: {fileID: 0}
+  questIndexToStart: 0
 --- !u!1 &6892873778454043306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,3 +2112,5 @@ MonoBehaviour:
   dialogManager: {fileID: 7864971104491656766}
   DialogUI: {fileID: 7663595322305602356}
   CurrentDialogObject: {fileID: 11400000, guid: b139df73976758d449e692e9ecd7f255, type: 2}
+  questManager: {fileID: 0}
+  questIndexToStart: 1
