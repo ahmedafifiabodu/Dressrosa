@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class TimeTravel_System : MonoBehaviour
 {
+    public static TimeTravel_System instance;
     private DistanceShader _travelEffect;
     [SerializeField] private Transform player;
     [SerializeField] private float smoothTime;
     public Slider staminaBar;
+    public bool canTravel;
     public bool effectActivated;
     private float velocity;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+        canTravel = false;
         effectActivated = false;
         staminaBar.maxValue = PlayerInformation.Instance._stamina;
         _travelEffect = GetComponent<DistanceShader>();
@@ -22,7 +26,7 @@ public class TimeTravel_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && canTravel == true)
         {
             effectActivated = !effectActivated;
         }
