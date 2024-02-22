@@ -3,9 +3,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Source")]
-    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource masterVolume;
 
+    [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private AudioSource dialogSource;
 
     [Header("Audio Clip")]
     [SerializeField] private AudioClip background;
@@ -30,14 +32,15 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
+    private void Start() => PlayBackground();
+
+    internal void PlaySFX(AudioClip clip) => SFXSource.PlayOneShot(clip);
+
+    internal void PlayDialog(AudioClip clip) => dialogSource.PlayOneShot(clip);
+
+    internal void PlayBackground()
     {
         musicSource.clip = background;
         musicSource.Play();
-    }
-
-    internal void PlaySFX(AudioClip clip)
-    {
-        SFXSource.PlayOneShot(clip);
     }
 }
