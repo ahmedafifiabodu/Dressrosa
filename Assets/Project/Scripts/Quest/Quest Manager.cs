@@ -55,8 +55,11 @@ public class QuestManager : MonoBehaviour
 
         if (quest.IsCompleted)
         {
+            TimeTravel_System.instance.canTravel = false;
             lastCompletedQuestIndex = questIndex;
         }
+
+       // quest.objectives[objectiveIndex].setCurrentObjectiveGameObjectToFalse();
 
         /*
                  // Check if the quest is completed
@@ -117,7 +120,7 @@ public class QuestManager : MonoBehaviour
 
         // Set the quest as active
         quests[questIndex].IsActive = true;
-
+        TimeTravel_System.instance.canTravel = true;
         lastCompletedQuestIndex = -1;
     }
 
