@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8207736085122423742}
   - component: {fileID: 717562231888409869}
   - component: {fileID: 4764186123002202594}
-  - component: {fileID: 1230106137331031339}
   - component: {fileID: 8101675410751556127}
   - component: {fileID: 2274004417302882403}
   - component: {fileID: 4360007783974943445}
@@ -213,23 +212,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71a08dcca8e79444a14757fa1f30c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogManager: {fileID: 0}
+  _invertDirection: 0
   _rb: {fileID: 1426654143429596165}
   _speed: 1
   _crippledSpeed: 6
   travelEffecrt: {fileID: 0}
   _animator: {fileID: 8207736085122423742}
---- !u!114 &1230106137331031339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089339775691109130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00563d6812771d045a18caa56e1876e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8101675410751556127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 0}
   _promptMessage: {fileID: 0}
+  questManager: {fileID: 0}
 --- !u!114 &2274004417302882403
 MonoBehaviour:
   m_ObjectHideFlags: 0
