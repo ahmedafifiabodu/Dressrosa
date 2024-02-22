@@ -6,6 +6,7 @@ public class PlayerInteractable : MonoBehaviour
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private TextMeshProUGUI _promptMessage;
     [SerializeField] private QuestManager questManager;
+   [SerializeField] private DialogManager _DialogManager;
 
     private Interactable _currentInteractable;
     private DialogController _currentDialog;
@@ -35,7 +36,8 @@ public class PlayerInteractable : MonoBehaviour
                     _promptMessage.gameObject.SetActive(true);
                     _promptMessage.text = _interactable._promptMessage;
                     _currentInteractable = _interactable;
-                    _currentDialog = _dialogController;
+					_DialogManager.dialogComponents[_DialogManager.currentDialogIndex].Mark.SetActive(true);
+					_currentDialog = _dialogController;
                 }
             }
             else
