@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Clue_System : MonoBehaviour
 {
+    public static Clue_System instance;
     [SerializeField] private QuestManager questManager;
     [SerializeField] private List<Clues> Quest1_objectives , Quest2_objectives , Quest3_objectives;
     public int questIndex;
     public int objectiveIndex;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Update()
     {

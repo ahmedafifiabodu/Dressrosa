@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class Puzzle_System : MonoBehaviour
 {
+    [SerializeField] private QuestManager _quest;
     [SerializeField] private GameObject puzzle;
     [SerializeField] private SildingGameMAnager slidePuzzle;
+    private bool QuestCompleted;
     private bool noteActive;
     private bool canSeeNote;
 
     private void Start()
     {
+        QuestCompleted = false;
         noteActive = false;
         canSeeNote = false;
     }
@@ -21,6 +24,11 @@ public class Puzzle_System : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canSeeNote == true)
         {
             noteActive = !noteActive;
+            if (QuestCompleted == false)
+            {
+                _quest.SetObjectiveCompletion(Clue_System.instance.questIndex, Clue_System.instance.objectiveIndex, true);
+                QuestCompleted = true;
+            }
         }
 
         ActivateGameObject();
