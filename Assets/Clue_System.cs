@@ -9,7 +9,6 @@ public class Clue_System : MonoBehaviour
     public int questIndex;
     public int objectiveIndex;
 
-    // Update is called once per frame
     void Update()
     {
         questIndex = questManager.GetActiveQuestIndex();
@@ -38,6 +37,7 @@ public class Clue_System : MonoBehaviour
         {
             for (int j = 0; j < obj[questIndex].clues.Count; j++)
             {
+                if (obj[objectiveIndex].clues[j].gameObject != null)
                 obj[objectiveIndex].clues[j].gameObject.SetActive(true);
             }
         }
@@ -45,6 +45,7 @@ public class Clue_System : MonoBehaviour
         {
             for (int j = 0; j < obj[questIndex].clues.Count; j++)
             {
+                if (obj[objectiveIndex].clues[j].gameObject != null)
                 obj[objectiveIndex].clues[j].gameObject.SetActive(false);
             }
         }
