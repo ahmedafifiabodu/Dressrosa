@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Quest", menuName = "Quest")]
+[CreateAssetMenu(fileName = "New Quest", menuName = "Scriptable Object/Quest")]
 public class Quest : ScriptableObject
 {
     [SerializeField] internal Sprite icon;
@@ -20,6 +20,8 @@ public class Quest : ScriptableObject
             return true;
         }
     }
+
+    internal bool IsActive { get; set; }
 
     internal int GetActiveObjectiveIndex()
     {

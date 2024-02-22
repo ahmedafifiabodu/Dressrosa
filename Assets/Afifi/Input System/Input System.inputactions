@@ -121,7 +121,7 @@
                 {
                     "name": "up",
                     "id": "141de3f6-e3f2-4adf-834a-7b4a01b62f34",
-                    "path": "<Gamepad>/leftStick/up",
+                    "path": "<HID::Twin USB Gamepad      >/hat/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,7 +132,7 @@
                 {
                     "name": "down",
                     "id": "3bb0ec35-fe13-499d-b493-8afdf689b8f9",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<HID::Twin USB Gamepad      >/hat/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -143,7 +143,7 @@
                 {
                     "name": "left",
                     "id": "0158e702-07ea-4547-acfa-0acc8fe37a0a",
-                    "path": "<Gamepad>/leftStick/left",
+                    "path": "<HID::Twin USB Gamepad      >/hat/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -154,7 +154,7 @@
                 {
                     "name": "right",
                     "id": "82d7f28c-87b1-422f-908f-1bdb4eb1d0f7",
-                    "path": "<Gamepad>/leftStick/right",
+                    "path": "<HID::Twin USB Gamepad      >/hat/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -176,7 +176,7 @@
                 {
                     "name": "",
                     "id": "07fe9993-e5d6-4cad-ac3c-37957320c4c9",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<HID::Twin USB Gamepad      >/button3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -210,6 +210,72 @@
                     "name": "",
                     "id": "71144d69-8b1c-44d8-8780-5e9cd776b504",
                     "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "LeftStick",
+                    "id": "82603988-e0d0-43ac-ad14-7e68dd4ecf79",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "0c1cf4b5-4aa1-4d35-a7d5-2e4f0215b9f5",
+                    "path": "<HID::Twin USB Gamepad      >/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b7c78ac7-a7fa-46c0-892d-093aa5b2dec4",
+                    "path": "<HID::Twin USB Gamepad      >/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a9ab82ff-ba84-44d8-b126-bce98c482594",
+                    "path": "<HID::Twin USB Gamepad      >/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c7fb9a3d-826e-4f6f-8955-07d3d6864ab4",
+                    "path": "<HID::Twin USB Gamepad      >/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c5c8d5ef-3029-4294-a2f4-d1c0768efa19",
+                    "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

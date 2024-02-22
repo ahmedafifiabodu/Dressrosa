@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4764186123002202594}
   - component: {fileID: 1230106137331031339}
   - component: {fileID: 8101675410751556127}
+  - component: {fileID: 2274004417302882403}
+  - component: {fileID: 4360007783974943445}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -242,3 +244,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 0}
   _promptMessage: {fileID: 0}
+--- !u!114 &2274004417302882403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089339775691109130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaab8ff57120ea04491e3dfba199db20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4360007783974943445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089339775691109130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5583714c087afd4b958aa7c0c00b6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 1426654143429596165}
+  pushPower: 2
+  pushableLayer:
+    serializedVersion: 2
+    m_Bits: 1024

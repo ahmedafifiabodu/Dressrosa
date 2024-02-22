@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ad11fb836ad5e4e917c518f829d7df, type: 3}
+  m_Name: Dialog 1
+  m_EditorClassIdentifier: 
+  DialogText:
+  - hello
+  - bye
+  IsLoopable: 0
+  IsOrdered: 1
+  NextDialog: {fileID: 11400000, guid: b139df73976758d449e692e9ecd7f255, type: 2}
