@@ -111,6 +111,5 @@ public class PlayerIsometricMovement : MonoBehaviour
 
     internal void Fire()
     {
-        Debug.Log("Fire");
     }
 }
