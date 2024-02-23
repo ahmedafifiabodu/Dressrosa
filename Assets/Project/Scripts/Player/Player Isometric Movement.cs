@@ -17,11 +17,16 @@ public class PlayerIsometricMovement : MonoBehaviour
     private Vector2 lastMoveDirection;
     private bool facingLeft = false;
     private PlayerInformation _playerInformation;
+    private AudioManager _audioManager;
 
     private float isoMoveX;
     private float isoMoveY;
 
-    private void Start() => _playerInformation = PlayerInformation.Instance;
+    private void Start()
+    {
+        _playerInformation = PlayerInformation.Instance;
+        _audioManager = AudioManager.Instance;
+    }
 
     internal void ProcessMove(Vector2 _input)
     {
@@ -51,7 +56,11 @@ public class PlayerIsometricMovement : MonoBehaviour
         Vector2 isoInput = new(isoMoveX, isoMoveY);
 
         if (isoMoveX != 0 || isoMoveY != 0)
+        {
             lastMoveDirection = isoInput;
+
+            _audioManager.PlaySFX(_audioManager.walk);
+        }
 
         if (travelEffecrt.effectActivated)
         {
@@ -95,8 +104,6 @@ public class PlayerIsometricMovement : MonoBehaviour
 
         _animator.SetInteger(GameConstant.LASTMOVEX, (int)lastMoveDirection.x);
         _animator.SetInteger(GameConstant.LASTMOVEY, (int)lastMoveDirection.y);
-
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.walk);
 
         // Check if the player is moving isometrically
         //bool isMovingIsometrically = isoMoveX != 0 && isoMoveY != 0;
