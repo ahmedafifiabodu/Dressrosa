@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogController : MonoBehaviour
@@ -7,6 +8,7 @@ public class DialogController : MonoBehaviour
     [SerializeField] private DialogScriptableObject CurrentDialogObject;
     [SerializeField] private QuestManager questManager;
     [SerializeField] private int questIndexToStart;
+    [SerializeField] private List<GameObject> objectsToEnable; // List of objects to enable
 
     private void OnEnable() => DialogUI.NextButton.onClick.AddListener(OnInteract);
 
@@ -31,6 +33,12 @@ public class DialogController : MonoBehaviour
 
             // Notify the dialog manager that the dialog is complete
             dialogManager.OnDialogComplete();
+
+            // Enable the objects
+            if (objectsToEnable != null && objectsToEnable.Count > 0)
+                foreach (var obj in objectsToEnable)
+                    obj.SetActive(true);
+
             return;
         }
 

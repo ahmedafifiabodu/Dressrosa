@@ -54,14 +54,24 @@ public class ClueSystem : MonoBehaviour
         if (_timeTravelSystem.canTravel == true && _timeTravelSystem.effectActivated == true)
         {
             foreach (var clues in obj)
-                foreach (var clue in clues.clues)
-                    clue.SetActive(true);
+            {
+                if (clues.clues != null) // Check if clues is not null
+                {
+                    foreach (var clue in clues.clues)
+                        clue.SetActive(true);
+                }
+            }
         }
         else
         {
             foreach (var clues in obj)
-                foreach (var clue in clues.clues)
-                    clue.SetActive(false);
+            {
+                if (clues.clues != null) // Check if clues is not null
+                {
+                    foreach (var clue in clues.clues)
+                        clue.SetActive(false);
+                }
+            }
         }
     }
 

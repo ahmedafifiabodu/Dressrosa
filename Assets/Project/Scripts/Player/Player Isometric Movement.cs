@@ -17,16 +17,11 @@ public class PlayerIsometricMovement : MonoBehaviour
     private Vector2 lastMoveDirection;
     private bool facingLeft = false;
     private PlayerInformation _playerInformation;
-    private AudioManager _audioManager;
 
     private float isoMoveX;
     private float isoMoveY;
 
-    private void Start()
-    {
-        _playerInformation = PlayerInformation.Instance;
-        _audioManager = AudioManager.Instance;
-    }
+    private void Start() => _playerInformation = PlayerInformation.Instance;
 
     internal void ProcessMove(Vector2 _input)
     {

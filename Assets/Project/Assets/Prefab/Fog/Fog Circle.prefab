@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8777958531301171106}
   - component: {fileID: 4710321884932896971}
-  - component: {fileID: 8510149633846333069}
   - component: {fileID: 6549024612215840118}
+  - component: {fileID: 2205793799673893036}
   m_Layer: 0
   m_Name: Fog Circle
   m_TagString: Untagged
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8510149633846333069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59068165158348506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58b36720cac0624a816ed1133e4d504, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystemToStop: {fileID: 5179030729994644792}
 --- !u!58 &6549024612215840118
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,6 +122,19 @@ CircleCollider2D:
   m_Offset: {x: -0.0000038146973, y: -0.0000038146973}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2205793799673893036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59068165158348506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650a83f14f1d2804bbbea47214293df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystemToStop: {fileID: 5179030729994644792}
 --- !u!1001 &4118917680273031154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 5.48
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
@@ -233,15 +233,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.4641509
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
+      value: 0.35686275
       objectReference: {fileID: 0}
     - target: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.2302699
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       propertyPath: InitialModule.startSpeed.minMaxState
@@ -254,9 +254,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8948685149743677240, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2111825833413924140}
-    - targetCorrespondingSourceObject: {fileID: 8948685149743677240, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1257765248257774711}
   m_SourcePrefab: {fileID: 100100000, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
 --- !u!4 &4976741647958562692 stripped
 Transform:
@@ -303,19 +300,6 @@ CircleCollider2D:
   m_Offset: {x: -2.1583517, y: 2.212064e+9}
   serializedVersion: 2
   m_Radius: 0.22756574
---- !u!114 &1257765248257774711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4979090534191005898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58b36720cac0624a816ed1133e4d504, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystemToStop: {fileID: 5179030729994644792}
 --- !u!198 &5179030729994644792 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 9148720475736003274, guid: bd9d71ce95255aa499e572388b92596d, type: 3}
