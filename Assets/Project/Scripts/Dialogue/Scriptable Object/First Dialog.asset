@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025bc18629f74145a4d41186d73dde6, type: 3}
+  m_Name: First Dialog
+  m_EditorClassIdentifier: 
+  dialogItems:
+  - dialogText: did you hear about what happened to our neighbor?
+    sound: {fileID: 8300000, guid: 1964e90451c754a4781cd250d90ac71a, type: 3}
+    panel: {fileID: 2800000, guid: 0a7a2341c6a8c814c9817604ba6a8d38, type: 3}
+    leftWrite: 1
+  - dialogText: no what happened?
+    sound: {fileID: 8300000, guid: bec1f73c004b1904bb382c7edfe3633a, type: 3}
+    panel: {fileID: 2800000, guid: 62a9bcc938baf0a4aa3eded89d7c05ee, type: 3}
+    leftWrite: 0
+  - dialogText: her children got kidnapped by the wizard
+    sound: {fileID: 8300000, guid: 29050e30a9d9f06489efbb78205a61c2, type: 3}
+    panel: {fileID: 2800000, guid: 0a7a2341c6a8c814c9817604ba6a8d38, type: 3}
+    leftWrite: 1
+  - dialogText: ohh no, I hope they find them soon
+    sound: {fileID: 8300000, guid: 15594c104301a7d45b6c738d95774208, type: 3}
+    panel: {fileID: 2800000, guid: 62a9bcc938baf0a4aa3eded89d7c05ee, type: 3}
+    leftWrite: 0
+  isLoopable: 0
+  isOrdered: 1
+  nextDialog: {fileID: 0}

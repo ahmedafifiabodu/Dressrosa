@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025bc18629f74145a4d41186d73dde6, type: 3}
+  m_Name: third Dialog
+  m_EditorClassIdentifier: 
+  dialogItems:
+  - dialogText: Iam done with your lies, Awda that's my house I've always been here
+    sound: {fileID: 8300000, guid: 377943da94bdcbd4db97bdf3e5ef10ef, type: 3}
+    panel: {fileID: 2800000, guid: ea5c7fc02cad4664e8ddb0a9c21d52cb, type: 3}
+    leftWrite: 1
+  - dialogText: My family has been here for ages, and now you come and say it's yours,
+      ridiculous!
+    sound: {fileID: 8300000, guid: 6807cb29c516a9b4c9e0479af2d467a8, type: 3}
+    panel: {fileID: 2800000, guid: d7c2f56f172aac046999ee003c8b240f, type: 3}
+    leftWrite: 0
+  - dialogText: okay, prove it!
+    sound: {fileID: 8300000, guid: 454da044fa8285a4b8e1247605da36e1, type: 3}
+    panel: {fileID: 2800000, guid: ea5c7fc02cad4664e8ddb0a9c21d52cb, type: 3}
+    leftWrite: 1
+  - dialogText: I can't Find my Key !!!!
+    sound: {fileID: 8300000, guid: 135f78f61ae418446b15e0b82fce4c9e, type: 3}
+    panel: {fileID: 2800000, guid: d7c2f56f172aac046999ee003c8b240f, type: 3}
+    leftWrite: 0
+  isLoopable: 0
+  isOrdered: 0
+  nextDialog: {fileID: 0}

@@ -11,7 +11,7 @@ public class QuestManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject _questCanvas;
 
-    [SerializeField] private Sprite _defultQuestIcon;
+    [SerializeField] private Image _defultQuestIcon;
     [SerializeField] private Image _questIcon;
     [SerializeField] private TextMeshProUGUI _questName;
     [SerializeField] private TextMeshProUGUI _objectiveName;
@@ -104,7 +104,7 @@ public class QuestManager : MonoBehaviour
             else
             {
                 // If there is no active quest
-                _questIcon.sprite = _defultQuestIcon;
+                _questIcon.sprite = _defultQuestIcon.sprite;
                 _questName.text = "No Active Quest";
                 _objectiveName.text = "";
                 _objectiveDescription.text = "";
