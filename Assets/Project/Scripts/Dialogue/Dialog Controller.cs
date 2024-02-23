@@ -18,16 +18,16 @@ public class DialogController : MonoBehaviour
         dialogManager.OnDialogStart();
 
         // Get the next dialogue
-        string nextDialog = CurrentDialogObject.GetNextDialog();
+        DialogItems nextDialog = CurrentDialogObject.GetNextDialog();
 
-        // Check if next dialogue text is empty
-        if (string.IsNullOrEmpty(nextDialog))
+        // Check if next dialogue is empty
+        if (nextDialog == null)
         {
             // Close the dialogue
             DialogUI.gameObject.SetActive(false);
 
             // Notify the quest manager to start a quest
-            questManager.StartQuest(questIndexToStart); 
+            questManager.StartQuest(questIndexToStart);
 
             // Notify the dialog manager that the dialog is complete
             dialogManager.OnDialogComplete();
@@ -37,10 +37,4 @@ public class DialogController : MonoBehaviour
         // Show the next dialogue
         DialogUI.ShowText(nextDialog, true);
     }
-
-    /*    public void OnPointerClick(PointerEventData eventData)
-        {
-            Debug.Log("Clicked!");
-            OnInteract();
-        }*/
 }

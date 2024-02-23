@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject _questCanvas;
 
+    [SerializeField] private Image _defultQuestIcon;
     [SerializeField] private Image _questIcon;
     [SerializeField] private TextMeshProUGUI _questName;
     [SerializeField] private TextMeshProUGUI _objectiveName;
