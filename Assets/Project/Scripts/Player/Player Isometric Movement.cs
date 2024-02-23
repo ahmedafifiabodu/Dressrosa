@@ -78,7 +78,7 @@ public class PlayerIsometricMovement : MonoBehaviour
             //isoInput *= _crippledSpeed;
             _rb.drag += Mathf.Abs(isoInput.x) * Time.deltaTime * _crippledSpeed;
             _rb.drag += Mathf.Abs(isoInput.y) * Time.deltaTime * _crippledSpeed;
-            _animator.speed = _crippledSpeed;
+            _animator.speed = 0.5f;
             if (_playerInformation.IsOutOfStamina)
             {
                 _rb.drag = 0;

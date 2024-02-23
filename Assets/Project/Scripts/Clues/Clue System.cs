@@ -39,19 +39,17 @@ public class Clue_System : MonoBehaviour
 
     private void ActiveObjectives(List<Clues> obj)
     {
-        if (TimeTravel_System.instance.canTravel == true && TimeTravel_System.instance.effectActivated == true)
+        if (TimeTravel_System.instance.canTravel && TimeTravel_System.instance.effectActivated)
         {
-            for (int j = 0; j < obj[questIndex].clues.Count; j++)
+            for (int j = 0; j < obj[objectiveIndex].clues.Count; j++)
             {
-                if (obj[objectiveIndex].clues[j].gameObject != null)
                 obj[objectiveIndex].clues[j].gameObject.SetActive(true);
             }
         }
         else
         {
-            for (int j = 0; j < obj[questIndex].clues.Count; j++)
+            for (int j = 0; j < obj[objectiveIndex].clues.Count; j++)
             {
-                if (obj[objectiveIndex].clues[j].gameObject != null)
                 obj[objectiveIndex].clues[j].gameObject.SetActive(false);
             }
         }
