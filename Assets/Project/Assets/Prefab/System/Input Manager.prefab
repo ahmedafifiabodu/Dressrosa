@@ -47,3 +47,4 @@ MonoBehaviour:
   _playerMovement: {fileID: 0}
   _questManager: {fileID: 0}
   _inventoryManager: {fileID: 0}
+  _timeTravelSystem: {fileID: 0}

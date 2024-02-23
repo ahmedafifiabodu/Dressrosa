@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/EnvironmentTest/Environment.meta
 guid: dbd5011a892b64d49bc5c14207d8cf79
 folderAsset: yes
+========
+guid: f7e73a1984def1141a95d52937470b92
+>>>>>>>> Programming/Afifi:Assets/Project/Scenes/Main Menu.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

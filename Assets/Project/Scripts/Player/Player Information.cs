@@ -16,9 +16,9 @@ public class PlayerInformation : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-
-        _maxStamina = _stamina;
     }
+
+    private void Start() => _maxStamina = _stamina;
 
     internal bool IsOutOfStamina => _stamina <= 0;
 

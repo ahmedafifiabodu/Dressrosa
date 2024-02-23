@@ -14,7 +14,9 @@ public class ClueSystem : MonoBehaviour
     public static ClueSystem Instance { get; private set; }
 
     private List<Clues> obj;
-    private HashSet<GameObject> completedClues = new();
+    private readonly HashSet<GameObject> completedClues = new();
+
+    private TimeTravelSystem _timeTravelSystem;
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class ClueSystem : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
+    private void Start() => _timeTravelSystem = TimeTravelSystem.Instance;
 
     internal void ActiveObjectives(int questIndex)
     {
@@ -47,7 +51,7 @@ public class ClueSystem : MonoBehaviour
     private void CheckForTimeTravel(List<Clues> obj)
     {
         // Existing code
-        if (TimeTravel_System.instance.canTravel == true && TimeTravel_System.instance.effectActivated == true)
+        if (_timeTravelSystem.canTravel == true && _timeTravelSystem.effectActivated == true)
         {
             foreach (var clues in obj)
                 foreach (var clue in clues.clues)

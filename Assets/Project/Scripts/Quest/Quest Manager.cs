@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject _questCanvas;
 
+    [SerializeField] private Sprite _defultQuestIcon;
     [SerializeField] private Image _questIcon;
     [SerializeField] private TextMeshProUGUI _questName;
     [SerializeField] private TextMeshProUGUI _objectiveName;
@@ -18,8 +19,12 @@ public class QuestManager : MonoBehaviour
 
     internal int lastCompletedQuestIndex = -1;
 
+    private TimeTravelSystem _timeTravelSystem;
+
     internal void ResetQuests()
     {
+        _timeTravelSystem = TimeTravelSystem.Instance;
+
         foreach (var quest in quests)
         {
             quest.IsActive = false;
@@ -55,7 +60,7 @@ public class QuestManager : MonoBehaviour
 
         if (quest.IsCompleted)
         {
-            TimeTravel_System.instance.canTravel = false;
+            _timeTravelSystem.canTravel = false;
             lastCompletedQuestIndex = questIndex;
         }
 
@@ -79,7 +84,7 @@ public class QuestManager : MonoBehaviour
         {
             // If there is a completed quest
             Quest lastCompletedQuest = quests[lastCompletedQuestIndex];
-            _questIcon.sprite = null;
+            _questIcon.sprite = lastCompletedQuest.icon;
             _questName.text = $"The {lastCompletedQuest.questName} quest has been completed.";
             _objectiveName.text = "";
             _objectiveDescription.text = "";
@@ -99,7 +104,7 @@ public class QuestManager : MonoBehaviour
             else
             {
                 // If there is no active quest
-                _questIcon.sprite = null;
+                _questIcon.sprite = _defultQuestIcon;
                 _questName.text = "No Active Quest";
                 _objectiveName.text = "";
                 _objectiveDescription.text = "";
@@ -120,7 +125,7 @@ public class QuestManager : MonoBehaviour
 
         // Set the quest as active
         quests[questIndex].IsActive = true;
-        TimeTravel_System.instance.canTravel = true;
+        _timeTravelSystem.canTravel = true;
         lastCompletedQuestIndex = -1;
 
         // Activate the clues for the quest objectives

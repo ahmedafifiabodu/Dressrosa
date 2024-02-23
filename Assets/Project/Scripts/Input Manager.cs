@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private PlayerIsometricMovement _playerMovement;
     [SerializeField] private QuestManager _questManager;
     [SerializeField] private InventoryManger _inventoryManager;
+    [SerializeField] private TimeTravelSystem _timeTravelSystem;
 
     internal InputSystem _playerInput;
     private InputSystem.PlayerActions _playerActions;
@@ -38,15 +39,7 @@ public class InputManager : MonoBehaviour
             }
         };
 
-        /*        _onFoot.Switch.performed += ctx =>
-                {
-                    var scroll = ctx.ReadValue<float>();
-
-                    if (scroll > 0)
-                        _playerShooting.SwitchToNextWeapon();
-                    else if (scroll < 0)
-                        _playerShooting.SwitchToPreviousWeapon();
-                };*/
+        _playerActions.TimeTravel.performed += _ => _timeTravelSystem.ActiveTimeTravel();
     }
 
     private void FixedUpdate() => _playerMovement.ProcessMove(_playerActions.Movement.ReadValue<Vector2>());

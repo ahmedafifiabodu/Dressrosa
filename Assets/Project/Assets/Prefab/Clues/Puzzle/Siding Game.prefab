@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3401924087574410888}
   - component: {fileID: 192131681857656324}
-  - component: {fileID: 1794284825777413944}
+  - component: {fileID: 8058169985515241242}
   m_Layer: 0
   m_Name: ManageGame
   m_TagString: Untagged
@@ -199,9 +199,9 @@ MonoBehaviour:
   piecePrefab: {fileID: 4625495205315717367, guid: 0a0891fb7102b5d4689797b0f7202b0c, type: 3}
   puzzleTexture: {fileID: 5529695468378124888}
   size: 2
-  isWin: 0
+  _isQuestCompleted: 0
   activateChildren: 1
---- !u!210 &1794284825777413944
+--- !u!210 &8058169985515241242
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

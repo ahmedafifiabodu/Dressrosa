@@ -19,39 +19,28 @@ public class SetObjective : MonoBehaviour
             if (objectiveIndex != -1)
             {
                 questManager.SetObjectiveCompletion(questIndex, objectiveIndex, isCompleted);
-                Debug.Log("Objective completed");
             }
-            else
-            {
-                Debug.LogError("No active objective");
-            }
-        }
-        else
-        {
-            Debug.LogError("No active quest");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag(GameConstant.PLAYERTAG))
         {
             isCompleted = true;
+
             if (objectiveIndex == 1)
-            {
                 objectiveIndex = 0;
-            }
+
             SetObjectiveCompletion();
-            Debug.Log("Trigger completed");
         }
     }
 
     private void Update()
     {
         questIndex = questManager.GetActiveQuestIndex();
+
         if (questIndex != -1)
-        {
             objectiveIndex = questManager.quests[questIndex].GetActiveObjectiveIndex();
-        }
     }
 }
