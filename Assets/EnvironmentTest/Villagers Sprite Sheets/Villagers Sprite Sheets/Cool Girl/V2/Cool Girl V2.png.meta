@@ -136,11 +136,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cool Girl V1_Walk-1
+      name: Cool Girl V2_Walk-1
       rect:
         serializedVersion: 2
         x: 587
-        y: 2171
+        y: 2176
         width: 824
         height: 1850
       alignment: 0
@@ -157,11 +157,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cool Girl V1_Idle
+      name: Cool Girl V2_Idle
       rect:
         serializedVersion: 2
         x: 2488
-        y: 2171
+        y: 2176
         width: 1022
         height: 1850
       alignment: 0
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cool Girl V1_Walk-2
+      name: Cool Girl V2_Walk-2
       rect:
         serializedVersion: 2
         x: 336
@@ -209,9 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cool Girl V1_Idle: -2142406971
-      Cool Girl V1_Walk-1: -899293531
-      Cool Girl V1_Walk-2: -267164760
+      Cool Girl V2_Idle: -2142406971
+      Cool Girl V2_Walk-1: -899293531
+      Cool Girl V2_Walk-2: -267164760
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
