@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5078846429019199162
 Transform:
   m_ObjectHideFlags: 0
@@ -159,6 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3401924087574410888}
   - component: {fileID: 192131681857656324}
+  - component: {fileID: 1794284825777413944}
   m_Layer: 0
   m_Name: ManageGame
   m_TagString: Untagged
@@ -200,6 +201,18 @@ MonoBehaviour:
   size: 2
   isWin: 0
   activateChildren: 1
+--- !u!210 &1794284825777413944
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837748986037052936}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1001 &8461872077796116183
 PrefabInstance:
   m_ObjectHideFlags: 0
