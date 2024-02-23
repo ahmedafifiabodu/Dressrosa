@@ -7,27 +7,26 @@ public class DialogManager : MonoBehaviour
     [SerializeField] internal List<DialogComponent> dialogComponents = new();
 
     public bool IsDialogActive { get; private set; }
-	internal int currentDialogIndex = 0;
+    internal int currentDialogIndex = 0;
 
     private void Start()
     {
         // Start the first dialog and deactivate all others
         for (int i = 0; i < dialogComponents.Count; i++)
-		{
-		dialogComponents[i].Controller.enabled = (i == 0);
-		dialogComponents[i].Mark.SetActive((i == 0));
-		}
-            
-	}
+        {
+            dialogComponents[i].Controller.enabled = (i == 0);
+            dialogComponents[i].Mark.SetActive((i == 0));
+        }
+    }
 
     internal void OnDialogComplete()
     {
         // Deactivate the current dialog
         if (currentDialogIndex < dialogComponents.Count)
         {
-			dialogComponents[currentDialogIndex].Controller.enabled = false;
-			dialogComponents[currentDialogIndex].Mark.SetActive(false);
-		}
+            dialogComponents[currentDialogIndex].Controller.enabled = false;
+            dialogComponents[currentDialogIndex].Mark.SetActive(false);
+        }
 
         // Increment the currentDialogIndex
         currentDialogIndex++;
@@ -35,26 +34,29 @@ public class DialogManager : MonoBehaviour
         // Activate the next dialog
         if (currentDialogIndex < dialogComponents.Count)
         {
-			dialogComponents[currentDialogIndex].Controller.enabled = true;
-			//dialogComponents[currentDialogIndex].Mark.SetActive(true);
-		}
+            dialogComponents[currentDialogIndex].Controller.enabled = true;
+            //dialogComponents[currentDialogIndex].Mark.SetActive(true);
+        }
 
         IsDialogActive = false;
     }
 
-    internal void OnDialogStart() => IsDialogActive = true;
+    internal void OnDialogStart()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.dialogSound);
+        IsDialogActive = true;
+    }
 }
 
 [System.Serializable]
 public class DialogComponent
 {
-	[SerializeField] private DialogController controller;
-	[SerializeField] private GameObject mark;
+    [SerializeField] private DialogController controller;
+    [SerializeField] private GameObject mark;
 
-	public DialogController Controller { get => controller; set => controller = value; }
-	public GameObject Mark { get => mark; set => mark = value; }
+    public DialogController Controller { get => controller; set => controller = value; }
+    public GameObject Mark { get => mark; set => mark = value; }
 }
-
 
 /*
 using System.Collections.Generic;

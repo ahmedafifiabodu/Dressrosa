@@ -26,6 +26,7 @@ public class Cutscene : MonoBehaviour
     {
         cutsceneParent.SetActive(true);
         _inputManager._playerInput.Disable();
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.cutScene);
         StartCoroutine(PlayCutscene());
     }
 

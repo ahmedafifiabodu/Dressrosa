@@ -11,17 +11,28 @@ public class PlayerInteractable : MonoBehaviour
     private Interactable _currentInteractable;
     private DialogController _currentDialog;
     private InventoryParameters _inventoryParameters;
+    private AudioManager audioManager;
+
+    private void Start() => audioManager = AudioManager.Instance;
 
     private void Update()
     {
         if (_currentInteractable != null && _inputManager._playerInput.Player.Interact.triggered)
+        {
+            audioManager.PlaySFX(audioManager.interact);
             _currentInteractable.BaseInteract();
+        }
 
         if (_currentDialog != null && _inputManager._playerInput.Player.Interact.triggered)
+        {
+            audioManager.PlaySFX(audioManager.interact);
             _currentDialog.OnInteract();
+        }
 
         if (_inventoryParameters != null && _inputManager._playerInput.Player.Interact.triggered)
         {
+            audioManager.PlaySFX(audioManager.interact);
+
             // Check if there is an available slot
             Slot[] slots = _inventoryParameters._inventoryManger._inventoryCanvas.GetComponentsInChildren<Slot>();
             Slot availableSlot = System.Array.Find(slots,

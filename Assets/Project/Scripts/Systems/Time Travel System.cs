@@ -37,7 +37,11 @@ public class TimeTravelSystem : MonoBehaviour
         _travelEffect = GetComponent<DistanceShader>();
     }
 
-    internal void ActiveTimeTravel() => effectActivated = !effectActivated;
+    internal void ActiveTimeTravel()
+    {
+        effectActivated = !effectActivated;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.timetravel);
+    }
 
     // Update is called once per frame
     private void Update() => TravelEffect();
