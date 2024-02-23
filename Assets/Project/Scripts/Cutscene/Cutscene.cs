@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Cutscene : MonoBehaviour
 {
-    public GameObject cutsceneParent; // Assign this in the inspector
-    public Image cutsceneBackground; // Assign this in the inspector
-    public Image cutsceneImage; // Assign this in the inspector
-    public List<Sprite> cutsceneFrames; // Add your images in the inspector
-    public float transitionTime = 1f; // Time for fade in and fade out
+    [SerializeField] private InputManager _inputManager;
+    [SerializeField] private GameObject cutsceneParent; // Assign this in the inspector
+    [SerializeField] private Image cutsceneBackground; // Assign this in the inspector
+    [SerializeField] private Image cutsceneImage; // Assign this in the inspector
+    [SerializeField] private List<Sprite> cutsceneFrames; // Add your images in the inspector
+    [SerializeField] private float transitionTime = 1f; // Time for fade in and fade out
 
     private void Start()
     {
@@ -23,7 +24,8 @@ public class Cutscene : MonoBehaviour
 
     public void StartCutscene()
     {
-        cutsceneParent.SetActive(true); // Activate the image
+        cutsceneParent.SetActive(true);
+        _inputManager._playerInput.Disable();
         StartCoroutine(PlayCutscene());
     }
 
@@ -37,6 +39,8 @@ public class Cutscene : MonoBehaviour
             yield return FadeOut();
         }
 
+        cutsceneParent.SetActive(false); // Deactivate the image after the cutscene
+        _inputManager._playerInput.Enable(); // Enable player's input
         cutsceneParent.SetActive(false); // Deactivate the image after the cutscene
     }
 

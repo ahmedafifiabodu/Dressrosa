@@ -46,7 +46,7 @@ Material:
     - _DissolveScale: 0
     - _DissolveSize: 150
     - _FlashAmount: 0.1
-    - _GlowStrength: 0.96
+    - _GlowStrength: 0.806
     - _Offset: 0
     m_Colors:
     - _DissolveColor: {r: 0, g: 21.36125, b: 5.480608, a: 1}
