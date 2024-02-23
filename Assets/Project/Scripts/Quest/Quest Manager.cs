@@ -59,7 +59,7 @@ public class QuestManager : MonoBehaviour
             lastCompletedQuestIndex = questIndex;
         }
 
-       // quest.objectives[objectiveIndex].setCurrentObjectiveGameObjectToFalse();
+        // quest.objectives[objectiveIndex].setCurrentObjectiveGameObjectToFalse();
 
         /*
                  // Check if the quest is completed
@@ -122,6 +122,9 @@ public class QuestManager : MonoBehaviour
         quests[questIndex].IsActive = true;
         TimeTravel_System.instance.canTravel = true;
         lastCompletedQuestIndex = -1;
+
+        // Activate the clues for the quest objectives
+        ClueSystem.Instance.ActiveObjectives(questIndex);
     }
 
     private void Update() => UpdateUI();

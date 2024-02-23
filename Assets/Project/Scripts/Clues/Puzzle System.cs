@@ -1,62 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class Puzzle_System : MonoBehaviour
+public class PuzzleSystem : MonoBehaviour
 {
     [SerializeField] private QuestManager _quest;
     [SerializeField] private GameObject puzzle;
-    [SerializeField] private SildingGameMAnager slidePuzzle;
-    private bool QuestCompleted;
+    [SerializeField] private SildingGameManager _sildingPuzzle;
+
     private bool noteActive;
     private bool canSeeNote;
 
+    private ClueSystem _clueSystem;
+
     private void Start()
     {
-        QuestCompleted = false;
         noteActive = false;
         canSeeNote = false;
+
+        _clueSystem = ClueSystem.Instance;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canSeeNote == true)
-        {
+        if (_clueSystem._inputManager._playerInput.Player.Interact.triggered && canSeeNote == true)
             noteActive = !noteActive;
-            if (QuestCompleted == false)
-            {
-                _quest.SetObjectiveCompletion(Clue_System.instance.questIndex, Clue_System.instance.objectiveIndex, true);
-                QuestCompleted = true;
-            }
-        }
 
         ActivateGameObject();
     }
 
+    public bool IsQuestCompleted() => _sildingPuzzle._isQuestCompleted;
+
     private void ActivateGameObject()
     {
         if (noteActive == true)
-        {
-            puzzle.gameObject.SetActive(true);
-        }
+            puzzle.SetActive(true);
         else if (noteActive == false)
-        {
-            puzzle.gameObject.SetActive(false);
-        }
+            puzzle.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
+        if (collision.gameObject.CompareTag(GameConstant.PLAYERTAG))
             canSeeNote = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(GameConstant.PLAYERTAG))
         {
             canSeeNote = false;
             noteActive = false;

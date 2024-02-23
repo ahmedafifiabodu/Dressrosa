@@ -1,57 +1,102 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Clue_System : MonoBehaviour
+public class ClueSystem : MonoBehaviour
 {
-    public static Clue_System instance;
+    [Header("References")]
+    [SerializeField] internal InputManager _inputManager;
+
     [SerializeField] private QuestManager questManager;
-    [SerializeField] private List<Clues> Quest1_objectives , Quest2_objectives , Quest3_objectives;
-    public int questIndex;
-    public int objectiveIndex;
+
+    [Header("Quest Objectives")]
+    [SerializeField] private List<ClueGroup> questObjectives;
+
+    public static ClueSystem Instance { get; private set; }
+
+    private List<Clues> obj;
+    private HashSet<GameObject> completedClues = new();
 
     private void Awake()
     {
-        instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    void Update()
+    internal void ActiveObjectives(int questIndex)
     {
-        questIndex = questManager.GetActiveQuestIndex();
-        if (questIndex != -1)
+        if (questObjectives == null || questIndex >= questObjectives.Count || questIndex < 0)
+            return;
+
+        obj = questObjectives[questIndex].clues;
+
+        // Check if the quest is completed
+        if (questManager.quests[questIndex].IsCompleted)
         {
-            Quest activeQuest = questManager.quests[questIndex];
-            objectiveIndex = activeQuest.GetActiveObjectiveIndex();
-            if(questIndex == 0)
+            // If the quest is completed, deactivate all its clues and return
+            for (int j = 0; j < obj.Count; j++)
             {
-                ActiveObjectives(Quest1_objectives);
+                if (obj[j].gameObject != null)
+                    obj[j].gameObject.SetActive(false);
             }
-            else if(questIndex == 1)
-            {
-                ActiveObjectives(Quest2_objectives);
-            }
-            else if (questIndex == 2)
-            {
-                ActiveObjectives(Quest3_objectives);
-            }
+            return;
         }
     }
 
-    private void ActiveObjectives(List<Clues> obj)
+    private void CheckForTimeTravel(List<Clues> obj)
     {
-        if (TimeTravel_System.instance.canTravel && TimeTravel_System.instance.effectActivated)
+        // Existing code
+        if (TimeTravel_System.instance.canTravel == true && TimeTravel_System.instance.effectActivated == true)
         {
-            for (int j = 0; j < obj[objectiveIndex].clues.Count; j++)
-            {
-                obj[objectiveIndex].clues[j].gameObject.SetActive(true);
-            }
+            foreach (var clues in obj)
+                foreach (var clue in clues.clues)
+                    clue.SetActive(true);
         }
         else
         {
-            for (int j = 0; j < obj[objectiveIndex].clues.Count; j++)
+            foreach (var clues in obj)
+                foreach (var clue in clues.clues)
+                    clue.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (obj != null)
+        {
+            CheckForTimeTravel(obj);
+
+            // Check if the current active clue is completed
+            foreach (var clueGroup in obj)
             {
-                obj[objectiveIndex].clues[j].gameObject.SetActive(false);
+                foreach (var clue in clueGroup.clues)
+                {
+                    if (clue.activeSelf && !completedClues.Contains(clue))
+                    {
+                        var noteSystem = clue.GetComponent<NoteAppearing_System>();
+                        var slidingGame = clue.GetComponent<PuzzleSystem>();
+
+                        if ((noteSystem != null && noteSystem.IsQuestCompleted()) ||
+                            (slidingGame != null && slidingGame.IsQuestCompleted()))
+                        {
+                            // If the clue is completed, set the objective to true
+                            questManager.SetObjectiveCompletion(questManager.GetActiveQuestIndex(), questManager.quests[questManager.GetActiveQuestIndex()].GetActiveObjectiveIndex(), true);
+
+                            // Add the completed clue to the set
+                            completedClues.Add(clue);
+
+                            return; // return early as the objective is completed
+                        }
+                    }
+                }
             }
         }
     }
+}
+
+[System.Serializable]
+public class ClueGroup
+{
+    public List<Clues> clues;
 }

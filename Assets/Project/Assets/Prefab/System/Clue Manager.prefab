@@ -251,18 +251,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7191f9072e8c44eacd869e6b0058d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputManager: {fileID: 0}
   questManager: {fileID: 0}
-  Quest1_objectives:
-  - {fileID: 6971189062519730258}
-  - {fileID: 1344255201180934974}
-  Quest2_objectives:
-  - {fileID: 4016298460753685017}
-  - {fileID: 5608357982281471930}
-  Quest3_objectives:
-  - {fileID: 1702009790925331788}
-  - {fileID: 4121988824309129333}
-  questIndex: 0
-  objectiveIndex: 0
+  questObjectives:
+  - clues:
+    - {fileID: 6971189062519730258}
+    - {fileID: 1344255201180934974}
+  - clues:
+    - {fileID: 4016298460753685017}
+    - {fileID: 5608357982281471930}
+  - clues:
+    - {fileID: 1702009790925331788}
+    - {fileID: 4121988824309129333}
 --- !u!1 &8505963161254799346
 GameObject:
   m_ObjectHideFlags: 0
