@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02449b11a76b68e40bed5ee5078fc143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputManager: {fileID: 0}
   cutsceneParent: {fileID: 0}
   cutsceneBackground: {fileID: 0}
   cutsceneImage: {fileID: 0}
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02449b11a76b68e40bed5ee5078fc143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputManager: {fileID: 0}
   cutsceneParent: {fileID: 0}
   cutsceneBackground: {fileID: 0}
   cutsceneImage: {fileID: 0}
