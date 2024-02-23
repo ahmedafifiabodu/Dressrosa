@@ -12,14 +12,12 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clip")]
     [SerializeField] private AudioClip background;
 
-    [SerializeField] internal AudioClip coin;
-    [SerializeField] internal AudioClip jump;
-    [SerializeField] internal AudioClip hit;
-    [SerializeField] internal AudioClip death;
-    [SerializeField] internal AudioClip teleportIn;
-    [SerializeField] internal AudioClip teleportOut;
-    [SerializeField] internal AudioClip wallTouch;
-    [SerializeField] internal AudioClip checkpoint;
+    [SerializeField] internal AudioClip walk;
+    [SerializeField] internal AudioClip interact;
+    [SerializeField] internal AudioClip timetravel;
+
+    [SerializeField] internal AudioClip dialogSound;
+    [SerializeField] internal AudioClip cutScene;
     [SerializeField] internal AudioClip win;
 
     public static AudioManager Instance { get; private set; }

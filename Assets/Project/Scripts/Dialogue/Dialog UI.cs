@@ -17,7 +17,8 @@ public class DialogUI : MonoBehaviour
     {
         if (panelImage != null)
         {
-            Sprite newSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), Vector2.zero);
+            Sprite newSprite =
+                Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), Vector2.zero);
             panelImage.sprite = newSprite;
         }
     }

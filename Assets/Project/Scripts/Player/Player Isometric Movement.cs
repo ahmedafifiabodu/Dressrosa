@@ -96,6 +96,8 @@ public class PlayerIsometricMovement : MonoBehaviour
         _animator.SetInteger(GameConstant.LASTMOVEX, (int)lastMoveDirection.x);
         _animator.SetInteger(GameConstant.LASTMOVEY, (int)lastMoveDirection.y);
 
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.walk);
+
         // Check if the player is moving isometrically
         //bool isMovingIsometrically = isoMoveX != 0 && isoMoveY != 0;
         //_animator.SetBool("isDirectional", isMovingIsometrically);
