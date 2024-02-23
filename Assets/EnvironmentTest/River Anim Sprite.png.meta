@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: f03ebb436763207498e356f8989b4b5e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: River Anim Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 2196
+        width: 1788
+        height: 1536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae62745f167543448bb9b368b45e150
+      internalID: -2024661797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: River Anim Sprite_20
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 2196
+        width: 1788
+        height: 1540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9fc159e4876f44696f8c5df89d28eb
+      internalID: 389852853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: River Anim Sprite_23
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 2196
+        width: 1788
+        height: 1540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1c8714621a75b44b616aeb5394647a
+      internalID: -191580657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: River Anim Sprite_26
+      rect:
+        serializedVersion: 2
+        x: 6140
+        y: 2196
+        width: 1788
+        height: 1540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33300c5a14ca0904a96ab8b40f72f68d
+      internalID: 157125380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: River Anim Sprite_50
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 196
+        width: 1788
+        height: 1540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed748a35a1561f74f8a27ee7c845ae90
+      internalID: 269570251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: River Anim Sprite_53
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 196
+        width: 1788
+        height: 1540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7871e7cbae2950e44913265e08e5d362
+      internalID: -634490667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      River Anim Sprite_0: -999936566
+      River Anim Sprite_1: 687796834
+      River Anim Sprite_10: -1781460021
+      River Anim Sprite_11: 844620177
+      River Anim Sprite_12: 1518168326
+      River Anim Sprite_13: -74464157
+      River Anim Sprite_14: 497126028
+      River Anim Sprite_15: -702804344
+      River Anim Sprite_16: -2024661797
+      River Anim Sprite_17: 144425649
+      River Anim Sprite_18: 1195171832
+      River Anim Sprite_19: -794324460
+      River Anim Sprite_2: -1470255808
+      River Anim Sprite_20: 389852853
+      River Anim Sprite_21: 120579296
+      River Anim Sprite_22: -428781563
+      River Anim Sprite_23: -191580657
+      River Anim Sprite_24: 895440618
+      River Anim Sprite_25: -246058839
+      River Anim Sprite_26: 157125380
+      River Anim Sprite_27: 658342802
+      River Anim Sprite_28: 140793372
+      River Anim Sprite_29: -393720173
+      River Anim Sprite_3: 152964458
+      River Anim Sprite_30: 909867258
+      River Anim Sprite_31: 2105819612
+      River Anim Sprite_32: -1523958389
+      River Anim Sprite_33: -195624561
+      River Anim Sprite_34: -12876744
+      River Anim Sprite_35: -883005516
+      River Anim Sprite_36: 1119716576
+      River Anim Sprite_37: 182321391
+      River Anim Sprite_38: 1834346449
+      River Anim Sprite_39: -1577713954
+      River Anim Sprite_4: 1313404560
+      River Anim Sprite_40: 1561651064
+      River Anim Sprite_41: -972131687
+      River Anim Sprite_42: 383230703
+      River Anim Sprite_43: 1497818402
+      River Anim Sprite_44: -1833209048
+      River Anim Sprite_45: -1133144179
+      River Anim Sprite_46: -2122881461
+      River Anim Sprite_47: -770656448
+      River Anim Sprite_48: -479450484
+      River Anim Sprite_49: 216933816
+      River Anim Sprite_5: -796007296
+      River Anim Sprite_50: 269570251
+      River Anim Sprite_51: 1304863341
+      River Anim Sprite_52: -1133210097
+      River Anim Sprite_53: -634490667
+      River Anim Sprite_54: -1424170890
+      River Anim Sprite_55: -264581149
+      River Anim Sprite_56: 189600441
+      River Anim Sprite_57: 1752401207
+      River Anim Sprite_58: -309661176
+      River Anim Sprite_59: 376068465
+      River Anim Sprite_6: 1414922483
+      River Anim Sprite_60: 1679823673
+      River Anim Sprite_61: -792682604
+      River Anim Sprite_62: -836358552
+      River Anim Sprite_63: -925968985
+      River Anim Sprite_64: 1713016253
+      River Anim Sprite_65: 684312633
+      River Anim Sprite_7: 1791285670
+      River Anim Sprite_8: -1234438533
+      River Anim Sprite_9: 307997366
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

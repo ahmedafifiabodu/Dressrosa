@@ -60,7 +60,7 @@ Material:
     - _DissolveSize: 0
     - _Distance: 0.33
     - _FlashAmount: 0.01
-    - _GlowStrength: 0.516
+    - _GlowStrength: 0.95
     m_Colors:
     - _2D_Position: {r: 0, g: 0, b: 0, a: 0}
     - _DissolveColor: {r: 76.06824, g: 98.04429, b: 0, a: 1}
