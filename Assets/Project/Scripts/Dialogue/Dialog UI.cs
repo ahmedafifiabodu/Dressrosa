@@ -29,6 +29,7 @@ public class DialogUI : MonoBehaviour
         StopAllCoroutines(); // Stop any ongoing typing
         if (shouldType)
         {
+            ChangeImage(dialogItem.Panel);
             AudioManager.Instance.PlayDialog(dialogItem.Sound);
             if (dialogItem.LeftWrite)
                 DialogBoxText.alignment = TextAlignmentOptions.Left;

@@ -16,7 +16,10 @@ public class NPC : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
+    public void startMovement()
+    {
         if (points.Length > 0)
         {
             transform.position = points[0].position;

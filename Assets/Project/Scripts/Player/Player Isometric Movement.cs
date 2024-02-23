@@ -6,7 +6,7 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private DialogManager dialogManager;
 
     [Header("Movement")]
-    [SerializeField] private bool _invertDirection = false;
+    public bool _invertDirection = false;
 
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
