@@ -84,7 +84,7 @@ public class QuestManager : MonoBehaviour
         {
             // If there is a completed quest
             Quest lastCompletedQuest = quests[lastCompletedQuestIndex];
-            _questIcon.sprite = null;
+            _questIcon.sprite = lastCompletedQuest.icon;
             _questName.text = $"The {lastCompletedQuest.questName} quest has been completed.";
             _objectiveName.text = "";
             _objectiveDescription.text = "";
@@ -104,7 +104,7 @@ public class QuestManager : MonoBehaviour
             else
             {
                 // If there is no active quest
-                _questIcon.sprite = null;
+                _questIcon.sprite = _defultQuestIcon.sprite;
                 _questName.text = "No Active Quest";
                 _objectiveName.text = "";
                 _objectiveDescription.text = "";
