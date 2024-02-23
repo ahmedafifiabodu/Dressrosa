@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private AudioSource WalkSFXSource;
     [SerializeField] private AudioSource dialogSource;
 
     [Header("Audio Clip")]
@@ -17,7 +18,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] internal AudioClip timetravel;
 
     [SerializeField] internal AudioClip dialogSound;
-    [SerializeField] internal AudioClip cutScene;
     [SerializeField] internal AudioClip win;
 
     public static AudioManager Instance { get; private set; }
@@ -33,6 +33,19 @@ public class AudioManager : MonoBehaviour
     private void Start() => PlayBackground();
 
     internal void PlaySFX(AudioClip clip) => SFXSource.PlayOneShot(clip);
+
+    internal void PlayWalkSFX(AudioClip clip)
+    {
+        WalkSFXSource.clip = clip;
+        WalkSFXSource.loop = true;
+        WalkSFXSource.Play();
+    }
+
+    internal void StopWalkSFX()
+    {
+        WalkSFXSource.Stop();
+        WalkSFXSource.loop = false;
+    }
 
     internal void PlayDialog(AudioClip clip) => dialogSource.PlayOneShot(clip);
 

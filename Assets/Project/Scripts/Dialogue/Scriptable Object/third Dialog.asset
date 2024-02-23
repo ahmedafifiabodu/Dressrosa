@@ -31,5 +31,5 @@ MonoBehaviour:
     panel: {fileID: 2800000, guid: d7c2f56f172aac046999ee003c8b240f, type: 3}
     leftWrite: 0
   isLoopable: 0
-  isOrdered: 0
+  isOrdered: 1
   nextDialog: {fileID: 0}

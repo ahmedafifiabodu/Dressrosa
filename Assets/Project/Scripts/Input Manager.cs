@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerIsometricMovement _playerMovement;
@@ -20,6 +21,8 @@ public class InputManager : MonoBehaviour
         _playerActions = _playerInput.Player;
 
         _playerActions.Fire.performed += _ => _playerMovement.Fire();
+
+        _playerActions.Movement.performed += _ => AudioManager.Instance.PlayWalkSFX(AudioManager.Instance.walk);
 
         _playerActions.Quest.performed += _ =>
         {

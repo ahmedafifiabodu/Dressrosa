@@ -11,6 +11,7 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private Image cutsceneImage;
     [SerializeField] private List<Sprite> cutsceneFrames;
     [SerializeField] private float transitionTime = 1f;
+    [SerializeField] private AudioClip audioClip;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class Cutscene : MonoBehaviour
     {
         cutsceneParent.SetActive(true);
         _inputManager._playerInput.Disable();
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.cutScene);
+        AudioManager.Instance.PlaySFX(audioClip);
         StartCoroutine(PlayCutscene());
     }
 

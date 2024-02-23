@@ -55,12 +55,11 @@ public class PlayerIsometricMovement : MonoBehaviour
 
         Vector2 isoInput = new(isoMoveX, isoMoveY);
 
-        if (isoMoveX != 0 || isoMoveY != 0)
-        {
-            lastMoveDirection = isoInput;
+        if (isoMoveX == 0 && isoMoveY == 0)
+            AudioManager.Instance.StopWalkSFX();
 
-            _audioManager.PlaySFX(_audioManager.walk);
-        }
+        if (isoMoveX != 0 || isoMoveY != 0)
+            lastMoveDirection = isoInput;
 
         if (travelEffecrt.effectActivated)
         {
