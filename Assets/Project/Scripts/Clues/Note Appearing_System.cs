@@ -1,37 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NoteAppearing_System : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private QuestManager _quest;
+
+    [Header("Note")]
     [SerializeField] private Image noteImage;
+
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private string noteText;
-    private bool QuestCompleted;
+    [SerializeField][TextArea] private string noteText;
+
+    private bool _isQuestCompleted;
     private bool noteActive;
     private bool canSeeNote;
 
+    private ClueSystem _clueSystem;
+
+    public bool IsQuestCompleted() => _isQuestCompleted;
+
     private void Start()
     {
-        QuestCompleted = false;
+        _isQuestCompleted = false;
         text.text = noteText;
         noteActive = false;
         canSeeNote = false;
+
+        _clueSystem = ClueSystem.Instance;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && canSeeNote == true)
+        if (_clueSystem._inputManager._playerInput.Player.Interact.triggered && canSeeNote == true)
         {
             noteActive = !noteActive;
-            if(QuestCompleted == false)
-            {
-                _quest.SetObjectiveCompletion(Clue_System.instance.questIndex, Clue_System.instance.objectiveIndex, true);
-                QuestCompleted = true;
-            }
+            _isQuestCompleted = true;
         }
 
         ActivateNote();
@@ -39,27 +44,21 @@ public class NoteAppearing_System : MonoBehaviour
 
     private void ActivateNote()
     {
-        if(noteActive == true)
-        {
+        if (noteActive == true)
             noteImage.gameObject.SetActive(true);
-        }
-        else if(noteActive == false)
-        {
+        else if (noteActive == false)
             noteImage.gameObject.SetActive(false);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
+        if (collision.gameObject.CompareTag(GameConstant.PLAYERTAG))
             canSeeNote = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(GameConstant.PLAYERTAG))
         {
             canSeeNote = false;
             noteActive = false;

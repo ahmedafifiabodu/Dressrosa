@@ -12,4 +12,6 @@ public static class GameConstant
 
     public static int LASTMOVEX = Animator.StringToHash("Last Move X");
     public static int LASTMOVEY = Animator.StringToHash("Last Move Y");
+
+    public static string PLAYERTAG = "Player";
 }

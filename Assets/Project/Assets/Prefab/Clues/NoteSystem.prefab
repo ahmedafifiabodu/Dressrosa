@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3815401880551391444
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2524524582038276389}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.43475965, w: 0.90054655}
+  m_LocalRotation: {x: 0, y: 0, z: -0.43475965, w: 0.90054655}
   m_LocalPosition: {x: 2.32, y: -0.5, z: 0}
   m_LocalScale: {x: 0.20000002, y: 0.20000002, z: 0.2}
   m_ConstrainProportionsScale: 1
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: fe8c29bea0a67d945a75eeef4bfe9872, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3805e7faea5b14097440055112c24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _quest: {fileID: 0}
   noteImage: {fileID: 8582912961310609751}
   text: {fileID: 2721487831382846949}
   noteText: 'note is working now: Please go to kholy and tell him you are the gayes

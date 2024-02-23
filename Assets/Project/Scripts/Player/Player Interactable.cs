@@ -6,7 +6,7 @@ public class PlayerInteractable : MonoBehaviour
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private TextMeshProUGUI _promptMessage;
     [SerializeField] private QuestManager questManager;
-   [SerializeField] private DialogManager _DialogManager;
+    [SerializeField] private DialogManager _DialogManager;
 
     private Interactable _currentInteractable;
     private DialogController _currentDialog;
@@ -42,7 +42,6 @@ public class PlayerInteractable : MonoBehaviour
 
         if (collision.TryGetComponent<Interactable>(out var _interactable))
         {
-            Debug.Log("Interactable");
             if (collision.TryGetComponent<DialogController>(out var _dialogController))
             {
                 // If there's an active quest and the DialogController is enabled, allow interaction
@@ -51,13 +50,12 @@ public class PlayerInteractable : MonoBehaviour
                     _promptMessage.gameObject.SetActive(true);
                     _promptMessage.text = _interactable._promptMessage;
                     _currentInteractable = _interactable;
-					_DialogManager.dialogComponents[_DialogManager.currentDialogIndex].Mark.SetActive(true);
-					_currentDialog = _dialogController;
+                    _DialogManager.dialogComponents[_DialogManager.currentDialogIndex].Mark.SetActive(true);
+                    _currentDialog = _dialogController;
                 }
             }
             else if (collision.TryGetComponent<InventoryParameters>(out var _inventoryParameter))
             {
-                Debug.Log("Inventory Parameters");
                 _promptMessage.gameObject.SetActive(true);
                 _promptMessage.text = _interactable._promptMessage;
                 _currentInteractable = _interactable;
@@ -88,9 +86,7 @@ public class PlayerInteractable : MonoBehaviour
         if (collision.TryGetComponent<DialogController>(out _))
         {
             if (_currentDialog == collision.GetComponent<DialogController>())
-            {
                 _currentDialog = null;
-            }
         }
     }
 }

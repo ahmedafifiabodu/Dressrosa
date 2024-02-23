@@ -43,9 +43,9 @@ public class CameraZoomInAndZoomOut : MonoBehaviour
         }
 
         if (zoomIn)
-            ZoomIn();
-        else
             ZoomOut();
+        else
+            ZoomIn();
     }
 
     private void LateUpdate() => CameraUpdate();
