@@ -11,13 +11,12 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _crippledSpeed = 0.5f;
-    [SerializeField] private TimeTravel_System travelEffecrt;
+    [SerializeField] private TimeTravelSystem travelEffecrt;
     [SerializeField] private Animator _animator;
 
     private Vector2 lastMoveDirection;
     private bool facingLeft = false;
     private PlayerInformation _playerInformation;
-    private float _timeSinceLastMove = 0;
 
     private float isoMoveX;
     private float isoMoveY;

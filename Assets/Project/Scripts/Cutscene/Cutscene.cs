@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Cutscene : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
-    [SerializeField] private GameObject cutsceneParent; // Assign this in the inspector
-    [SerializeField] private Image cutsceneBackground; // Assign this in the inspector
-    [SerializeField] private Image cutsceneImage; // Assign this in the inspector
-    [SerializeField] private List<Sprite> cutsceneFrames; // Add your images in the inspector
-    [SerializeField] private float transitionTime = 1f; // Time for fade in and fade out
+    [SerializeField] private GameObject cutsceneParent;
+    [SerializeField] private Image cutsceneBackground;
+    [SerializeField] private Image cutsceneImage;
+    [SerializeField] private List<Sprite> cutsceneFrames;
+    [SerializeField] private float transitionTime = 1f;
 
     private void Start()
     {

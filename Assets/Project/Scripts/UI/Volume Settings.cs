@@ -7,6 +7,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSidler;
     [SerializeField] private Slider SFXSidler;
+    [SerializeField] private Slider dialogSidler;
 
     private void Start() => Checker();
 
@@ -24,13 +25,22 @@ public class VolumeSettings : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
+    public void SetDialogVolume()
+    {
+        float volume = dialogSidler.value;
+        myMixer.SetFloat("Dialog", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("DialogVolume", volume);
+    }
+
     private void LoadVolume()
     {
         musicSidler.value = PlayerPrefs.GetFloat("MusicVolume");
         SFXSidler.value = PlayerPrefs.GetFloat("SFXVolume");
+        dialogSidler.value = PlayerPrefs.GetFloat("DialogVolume");
 
         SetMusicVolume();
         SetSFXVolume();
+        SetDialogVolume();
     }
 
     private void Checker()
@@ -40,6 +50,7 @@ public class VolumeSettings : MonoBehaviour
         {
             SetMusicVolume();
             SetSFXVolume();
+            SetDialogVolume();
         }
     }
 }

@@ -5239,8 +5239,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 151299924646621323}
   m_HandleRect: {fileID: 4391815279745052690}
   m_Direction: 2
-  m_Value: 1.1588074
-  m_Size: 0.23308887
+  m_Value: 1.4156272
+  m_Size: 0.07428152
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5322,7 +5322,7 @@ GameObject:
   - component: {fileID: 7562190168055608169}
   - component: {fileID: 4961318114467530971}
   m_Layer: 0
-  m_Name: Canvas 1 1
+  m_Name: Canvas Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9477,7 +9477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -316.51736}
+  m_AnchoredPosition: {x: 0, y: -439.90384}
   m_SizeDelta: {x: 829.8484, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &812977512978704611
