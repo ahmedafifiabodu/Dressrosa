@@ -15169,10 +15169,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest (TEST)
       objectReference: {fileID: 0}
-    - target: {fileID: 568907477698054147, guid: 4a753d42c0626e94694d74a50015404f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1601849891364674013, guid: 4a753d42c0626e94694d74a50015404f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.99
@@ -16506,6 +16502,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4007448419958872724, guid: 8938ab336768dc042a906de3815d2f0a, type: 3}
+      propertyPath: _inputManager
+      value: 
+      objectReference: {fileID: 1600315575}
+    - target: {fileID: 4007448419958872724, guid: 8938ab336768dc042a906de3815d2f0a, type: 3}
       propertyPath: cutsceneImage
       value: 
       objectReference: {fileID: 955475132}
@@ -16521,6 +16521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CutScene System
       objectReference: {fileID: 0}
+    - target: {fileID: 5262402361982935842, guid: 8938ab336768dc042a906de3815d2f0a, type: 3}
+      propertyPath: _inputManager
+      value: 
+      objectReference: {fileID: 1600315575}
     - target: {fileID: 5262402361982935842, guid: 8938ab336768dc042a906de3815d2f0a, type: 3}
       propertyPath: cutsceneImage
       value: 
