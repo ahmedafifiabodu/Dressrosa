@@ -12,33 +12,34 @@ public class DialogController : MonoBehaviour
 
     private void OnDisable() => DialogUI.NextButton.onClick.RemoveListener(OnInteract);
 
-    internal void OnInteract()
-    {
-        // Call OnDialogStart when a dialog starts
-        dialogManager.OnDialogStart();
+	internal void OnInteract()
+	{
+		// Call OnDialogStart when a dialog starts
+		dialogManager.OnDialogStart();
 
-        // Get the next dialogue
-        string nextDialog = CurrentDialogObject.GetNextDialog();
+		// Get the next dialogue
+		DialogItems nextDialog = CurrentDialogObject.GetNextDialog();
 
-        // Check if next dialogue text is empty
-        if (string.IsNullOrEmpty(nextDialog))
-        {
-            // Close the dialogue
-            DialogUI.gameObject.SetActive(false);
+		// Check if next dialogue is empty
+		if (nextDialog == null)
+		{
+			// Close the dialogue
+			DialogUI.gameObject.SetActive(false);
 
-            // Notify the quest manager to start a quest
-            questManager.StartQuest(questIndexToStart); 
+			// Notify the quest manager to start a quest
+			questManager.StartQuest(questIndexToStart);
 
-            // Notify the dialog manager that the dialog is complete
-            dialogManager.OnDialogComplete();
-            return;
-        }
+			// Notify the dialog manager that the dialog is complete
+			dialogManager.OnDialogComplete();
+			return;
+		}
 
-        // Show the next dialogue
-        DialogUI.ShowText(nextDialog, true);
-    }
+		// Show the next dialogue
+		DialogUI.ShowText(nextDialog, true);
+	}
 
-    /*    public void OnPointerClick(PointerEventData eventData)
+
+	/*    public void OnPointerClick(PointerEventData eventData)
         {
             Debug.Log("Clicked!");
             OnInteract();

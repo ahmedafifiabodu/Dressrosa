@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025bc18629f74145a4d41186d73dde6, type: 3}
+  m_Name: Dialog Object
+  m_EditorClassIdentifier: 
+  dialogItems:
+  - dialogText: hello
+    sound: {fileID: 8300000, guid: 8295c855a37d8694892065e39280a4c0, type: 3}
+    panel: {fileID: 2800000, guid: bb13434ddae48e448a3cef38465af5e2, type: 3}
+    leftWrite: 1
+  - dialogText: heeeeey
+    sound: {fileID: 8300000, guid: 8295c855a37d8694892065e39280a4c0, type: 3}
+    panel: {fileID: 2800000, guid: 19604f3d9cc832a4d9fa2a953c105aaf, type: 3}
+    leftWrite: 0
+  isLoopable: 0
+  isOrdered: 1
+  nextDialog: {fileID: 0}
