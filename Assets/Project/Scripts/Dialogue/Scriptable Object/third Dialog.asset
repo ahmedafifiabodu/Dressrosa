@@ -15,20 +15,20 @@ MonoBehaviour:
   dialogItems:
   - dialogText: Iam done with your lies, Awda that's my house I've always been here
     sound: {fileID: 0}
-    panel: {fileID: 0}
-    leftWrite: 0
+    panel: {fileID: 2800000, guid: ea5c7fc02cad4664e8ddb0a9c21d52cb, type: 3}
+    leftWrite: 1
   - dialogText: My family has been here for ages, and now you come and say it's yours,
       ridiculous!
     sound: {fileID: 0}
-    panel: {fileID: 0}
+    panel: {fileID: 2800000, guid: d7c2f56f172aac046999ee003c8b240f, type: 3}
     leftWrite: 0
   - dialogText: okay, prove it!
     sound: {fileID: 0}
-    panel: {fileID: 0}
-    leftWrite: 0
+    panel: {fileID: 2800000, guid: ea5c7fc02cad4664e8ddb0a9c21d52cb, type: 3}
+    leftWrite: 1
   - dialogText: I can't Find my Key !!!!
     sound: {fileID: 0}
-    panel: {fileID: 0}
+    panel: {fileID: 2800000, guid: d7c2f56f172aac046999ee003c8b240f, type: 3}
     leftWrite: 0
   isLoopable: 0
   isOrdered: 0

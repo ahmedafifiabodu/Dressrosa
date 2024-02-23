@@ -12,7 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c025bc18629f74145a4d41186d73dde6, type: 3}
   m_Name: First Dialog
   m_EditorClassIdentifier: 
-  dialogItems: []
+  dialogItems:
+  - dialogText: did you hear about what happened to our neighbor?
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: 0a7a2341c6a8c814c9817604ba6a8d38, type: 3}
+    leftWrite: 1
+  - dialogText: no what happened?
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: 62a9bcc938baf0a4aa3eded89d7c05ee, type: 3}
+    leftWrite: 0
+  - dialogText: her children got kidnapped by the wizard
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: 0a7a2341c6a8c814c9817604ba6a8d38, type: 3}
+    leftWrite: 1
+  - dialogText: ohh no, I hope they find them soon
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: 62a9bcc938baf0a4aa3eded89d7c05ee, type: 3}
+    leftWrite: 0
   isLoopable: 0
-  isOrdered: 0
+  isOrdered: 1
   nextDialog: {fileID: 0}

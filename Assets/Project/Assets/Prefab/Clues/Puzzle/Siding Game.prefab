@@ -176,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 6837748986037052936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.40419433, y: -1.0654984, z: 0.1525164}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -199,7 +199,7 @@ MonoBehaviour:
   piecePrefab: {fileID: 4625495205315717367, guid: 0a0891fb7102b5d4689797b0f7202b0c, type: 3}
   puzzleTexture: {fileID: 5529695468378124888}
   size: 2
-  isWin: 0
+  _isQuestCompleted: 0
   activateChildren: 1
 --- !u!210 &1794284825777413944
 SortingGroup:
@@ -243,15 +243,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4625495205315717367, guid: 0a0891fb7102b5d4689797b0f7202b0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.40419433
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625495205315717367, guid: 0a0891fb7102b5d4689797b0f7202b0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0654984
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625495205315717367, guid: 0a0891fb7102b5d4689797b0f7202b0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1525164
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4625495205315717367, guid: 0a0891fb7102b5d4689797b0f7202b0c, type: 3}
       propertyPath: m_LocalRotation.w

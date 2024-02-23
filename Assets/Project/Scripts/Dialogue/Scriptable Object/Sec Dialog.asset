@@ -12,7 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c025bc18629f74145a4d41186d73dde6, type: 3}
   m_Name: Sec Dialog
   m_EditorClassIdentifier: 
-  dialogItems: []
+  dialogItems:
+  - dialogText: thanking crane-
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: df1e95a43745bdc47978f56853ba2275, type: 3}
+    leftWrite: 1
+  - dialogText: Thank you for saving us mr. birdie
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: df1e95a43745bdc47978f56853ba2275, type: 3}
+    leftWrite: 1
+  - dialogText: khhrrrrrrrr
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: d335a4c6c2de86645939477ecc5c8a18, type: 3}
+    leftWrite: 0
+  - dialogText: 'best of luck to you too
+
+'
+    sound: {fileID: 0}
+    panel: {fileID: 2800000, guid: df1e95a43745bdc47978f56853ba2275, type: 3}
+    leftWrite: 1
   isLoopable: 0
-  isOrdered: 0
+  isOrdered: 1
   nextDialog: {fileID: 0}
