@@ -87,7 +87,7 @@ public class PlayerIsometricMovement : MonoBehaviour
         }
         else
         {
-            _animator.speed = 1f;
+            _animator.speed = 1.5f;
         }
 
         _rb.velocity = isoInput * _speed;
