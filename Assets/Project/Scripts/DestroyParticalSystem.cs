@@ -7,10 +7,13 @@ public class DestroyParticalSystem : MonoBehaviour
     public static int quset1_Counter;
     [SerializeField] private PlayerIsometricMovement player;
     [SerializeField] private NPC[] charater;
+    [SerializeField] private GameObject stone , note;
 
     private void Start()
     {
         quset1_Counter = 0;
+        stone.SetActive(false);
+        note.SetActive(false);
     }
 
     void Update()
@@ -22,6 +25,8 @@ public class DestroyParticalSystem : MonoBehaviour
             {
                 charater[i].startMovement();
             }
+            stone.SetActive(true);
+            note.SetActive(true);
             Destroy(this.gameObject);
         }
     }

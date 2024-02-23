@@ -114,6 +114,8 @@ public class SildingGameManager : MonoBehaviour
 
         foreach (var piece in pieces)
             piece.gameObject.SetActive(false);
+
+        Destroy(this.gameObject);
     }
 
     private IEnumerator WaitShuffle(float duration)
