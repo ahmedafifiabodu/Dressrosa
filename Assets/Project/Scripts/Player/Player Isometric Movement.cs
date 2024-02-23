@@ -11,7 +11,7 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _crippledSpeed = 0.5f;
-    [SerializeField] TimeTravel_System travelEffecrt;
+    [SerializeField] private TimeTravel_System travelEffecrt;
     [SerializeField] private Animator _animator;
 
     private Vector2 lastMoveDirection;
@@ -22,10 +22,7 @@ public class PlayerIsometricMovement : MonoBehaviour
     private float isoMoveX;
     private float isoMoveY;
 
-    private void Start()
-    {
-        _playerInformation = PlayerInformation.Instance;
-    }
+    private void Start() => _playerInformation = PlayerInformation.Instance;
 
     internal void ProcessMove(Vector2 _input)
     {
@@ -42,36 +39,20 @@ public class PlayerIsometricMovement : MonoBehaviour
         if (_invertDirection)
             _input = -_input;
 
-        //To Make the player to stop from movement when out of stamina
-        /*        if (_playerInformation.IsOutOfStamina)
-                {
-                    _input = Vector2.zero;
-                }
-                else
-                {
-                    float moveX = _input.x;
-                    float moveY = _input.y;
-
-                    if (moveX != 0 || moveY != 0)
-                    {
-                        lastMoveDirection = _input;
-                        _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
-                    }
-                }*/
-
         float moveX = _input.x;
         float moveY = _input.y;
 
         // Adjust for isometric movement
-        isoMoveX = (moveX - moveY) / 2;
-        isoMoveY = (moveX + moveY) / 2;
+        //isoMoveX = (moveX - moveY) / 2;
+        //isoMoveY = (moveX + moveY) / 2;
+
+        isoMoveX = moveX;
+        isoMoveY = moveY;
 
         Vector2 isoInput = new(isoMoveX, isoMoveY);
 
         if (isoMoveX != 0 || isoMoveY != 0)
-        {
             lastMoveDirection = isoInput;
-        }
 
         if (travelEffecrt.effectActivated)
         {
@@ -86,13 +67,11 @@ public class PlayerIsometricMovement : MonoBehaviour
             }
         }
         else
-        {
             _animator.speed = 1.5f;
-        }
 
         _rb.velocity = isoInput * _speed;
         Animate(isoInput);
-        stamina();
+        Stamina();
 
         //if (_input.x < 0 && !facingLeft || _input.x > 0 && facingLeft)
         //{
@@ -100,27 +79,27 @@ public class PlayerIsometricMovement : MonoBehaviour
         //}
     }
 
-    private void stamina()
+    private void Stamina()
     {
         if (travelEffecrt.effectActivated && (isoMoveX != 0 || isoMoveY != 0))
-        {
             _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
-        }
-        else if(!travelEffecrt.effectActivated)
-        {
+        else if (!travelEffecrt.effectActivated)
             _playerInformation.RechargeStamina(Time.fixedDeltaTime);
-        }
     }
 
     private void Animate(Vector2 _input)
     {
-        _animator.SetFloat(GameConstant.MOVEX, _input.x);
-        _animator.SetFloat(GameConstant.MOVEY, _input.y);
+        _animator.SetInteger(GameConstant.MOVEX, (int)_input.x);
+        _animator.SetInteger(GameConstant.MOVEY, (int)_input.y);
 
-        _animator.SetFloat(GameConstant.MOVEMAGNITUDE, _input.magnitude);
+        _animator.SetInteger(GameConstant.MOVEMAGNITUDE, (int)_input.magnitude);
 
-        _animator.SetFloat(GameConstant.LASTMOVEX, lastMoveDirection.x);
-        _animator.SetFloat(GameConstant.LASTMOVEY, lastMoveDirection.y);
+        _animator.SetInteger(GameConstant.LASTMOVEX, (int)lastMoveDirection.x);
+        _animator.SetInteger(GameConstant.LASTMOVEY, (int)lastMoveDirection.y);
+
+        // Check if the player is moving isometrically
+        //bool isMovingIsometrically = isoMoveX != 0 && isoMoveY != 0;
+        //_animator.SetBool("isDirectional", isMovingIsometrically);
     }
 
     private void Flip()
