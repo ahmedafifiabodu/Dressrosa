@@ -61,7 +61,7 @@ public class DialogScriptableObject : ScriptableObject
 [System.Serializable]
 public class DialogItems
 {
-	[SerializeField] private string dialogText;
+	[SerializeField][TextArea] private string dialogText;
 	[SerializeField] private AudioClip sound;
 	[SerializeField] private Texture2D panel;
 	[SerializeField] private bool leftWrite;
