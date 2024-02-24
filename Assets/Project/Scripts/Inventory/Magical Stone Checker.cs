@@ -3,6 +3,8 @@ using UnityEngine;
 public class MagicalStoneChecker : MonoBehaviour
 {
     [SerializeField] private GameObject _stoneCanvas;
+    public Cutscene scene;
+
 
     public bool AreAllSlotsFilled()
     {
@@ -22,9 +24,9 @@ public class MagicalStoneChecker : MonoBehaviour
     }
 
     // For Testing
-    /*    private void Update()
-        {
-            if (AreAllSlotsFilled())
-                Debug.Log("All slots are filled");
-        }*/
+    private void Update()
+    {
+        if (AreAllSlotsFilled())
+            scene.StartCutscene();
+    }
 }
