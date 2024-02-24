@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StopParticleSystem : MonoBehaviour
@@ -12,17 +10,16 @@ public class StopParticleSystem : MonoBehaviour
     {
         if (collision.CompareTag("FogRock"))
         {
-            DestroyParticalSystem.quset1_Counter += 1;
+            StonePuzzle.quset1_Counter += 1;
             rockInsideTrigger = true;
-			collision.gameObject.layer = LayerMask.NameToLayer("Default");
-			// Check if the particle system is valid
-			if (particleSystemToStop != null)
+            collision.gameObject.layer = LayerMask.NameToLayer("Default");
+            // Check if the particle system is valid
+            if (particleSystemToStop != null)
             {
                 // Stop the particle system
                 particleSystemToStop.Stop();
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }
-
 }

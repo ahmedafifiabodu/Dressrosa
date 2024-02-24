@@ -10,12 +10,14 @@ public class SildingGameManager : MonoBehaviour
     [SerializeField] private Transform piecePrefab;
     [SerializeField] private GameObject puzzleTexture;
     [SerializeField] private int size = 3;
-    [SerializeField] internal bool _isQuestCompleted = false;
     [SerializeField] private bool activateChildren = true;
 
     private List<Transform> pieces;
     private int emptyLocation;
     private bool shuffling = false;
+    private bool _isQuestCompleted = false;
+
+    internal bool IsQuestCompleted() => _isQuestCompleted;
 
     private void CreateGamePieces(float gapThickness)
     {

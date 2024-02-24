@@ -4,6 +4,8 @@ public class PuzzleSystem : MonoBehaviour
 {
     [SerializeField] internal GameObject puzzle;
     [SerializeField] private SildingGameManager _sildingPuzzle;
+    [SerializeField] private StonePuzzle _stonePuzzle;
+    [SerializeField] private NoteAppearingSystem _noteAppearingSystem;
 
     private bool noteActive;
     private bool canSeeNote;
@@ -20,13 +22,26 @@ public class PuzzleSystem : MonoBehaviour
 
     private void Update()
     {
-        if (_clueSystem._inputManager._playerInput.Player.Interact.triggered && canSeeNote == true)
+        if (_clueSystem._inputManager._playerInput.Player.Interact.triggered
+            && canSeeNote == true)
             noteActive = !noteActive;
 
         ActivateGameObject();
     }
 
-    public bool IsQuestCompleted() => _sildingPuzzle._isQuestCompleted;
+    public bool IsQuestCompleted()
+    {
+        if (_sildingPuzzle == null)
+            return _sildingPuzzle.IsQuestCompleted();
+
+        if (_stonePuzzle == null)
+            return _stonePuzzle.IsQuestCompleted();
+
+        if (_noteAppearingSystem == null)
+            return _noteAppearingSystem.IsQuestCompleted();
+
+        return false;
+    }
 
     private void ActivateGameObject()
     {

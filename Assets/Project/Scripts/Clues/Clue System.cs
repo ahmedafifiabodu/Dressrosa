@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ClueSystem : MonoBehaviour
 {
-    [Header("Quest Objectives")]
     [SerializeField] private List<ClueGroup> questObjectives;
 
     internal InputManager _inputManager;
@@ -121,14 +120,15 @@ public class ClueSystem : MonoBehaviour
                 {
                     if (clue.activeSelf && !completedClues.Contains(clue))
                     {
-                        var noteSystem = clue.GetComponent<NoteAppearing_System>();
                         var slidingGame = clue.GetComponent<PuzzleSystem>();
 
-                        if ((noteSystem != null && noteSystem.IsQuestCompleted()) ||
-                            (slidingGame != null && slidingGame.IsQuestCompleted()))
+                        if (slidingGame != null && slidingGame.IsQuestCompleted())
                         {
                             // If the clue is completed, set the objective to true
-                            _questManager.SetObjectiveCompletion(_questManager.GetActiveQuestIndex(), _questManager.quests[_questManager.GetActiveQuestIndex()].GetActiveObjectiveIndex(), true);
+                            _questManager.SetObjectiveCompletion(
+                                _questManager.GetActiveQuestIndex(),
+                                _questManager.quests[_questManager.GetActiveQuestIndex()].GetActiveObjectiveIndex(),
+                                true);
 
                             // Add the completed clue to the set
                             completedClues.Add(clue);

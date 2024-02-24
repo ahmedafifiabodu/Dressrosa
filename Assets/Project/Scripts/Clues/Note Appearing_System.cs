@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NoteAppearing_System : MonoBehaviour
+public class NoteAppearingSystem : MonoBehaviour
 {
     [Header("Note")]
     [SerializeField] private Image noteImage;
@@ -16,7 +16,7 @@ public class NoteAppearing_System : MonoBehaviour
 
     private ClueSystem _clueSystem;
 
-    public bool IsQuestCompleted() => _isQuestCompleted;
+    internal bool IsQuestCompleted() => _isQuestCompleted;
 
     private void Start()
     {
