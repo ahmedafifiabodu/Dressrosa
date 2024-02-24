@@ -18131,7 +18131,7 @@ PrefabInstance:
       objectReference: {fileID: 2137516757}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: transitionTime
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: cutsceneBackground
@@ -26369,7 +26369,7 @@ PrefabInstance:
       objectReference: {fileID: 2137516757}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: transitionTime
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: cutsceneBackground
@@ -34886,17 +34886,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2137516757}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
+      propertyPath: transitionTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: cutsceneBackground
       value: 
       objectReference: {fileID: 483450237}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: cutsceneFrames.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
+      propertyPath: cutsceneFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ff892bb5e1eb8b449c6b9d4b24e0d08, type: 3}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: cutsceneFrames.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 1ff892bb5e1eb8b449c6b9d4b24e0d08, type: 3}
+      objectReference: {fileID: 21300000, guid: ada0d6468a07363428e55ef912746307, type: 3}
+    - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
+      propertyPath: cutsceneFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ada0d6468a07363428e55ef912746307, type: 3}
     - target: {fileID: 6917474845308388763, guid: 6ec16e8e74970d84a97cd317c43876de, type: 3}
       propertyPath: cutsceneFrames.Array.data[3]
       value: 
