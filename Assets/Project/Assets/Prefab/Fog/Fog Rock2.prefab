@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2350256875584528892}
   - component: {fileID: 8700582553411990404}
   - component: {fileID: 6707935078061123702}
+  - component: {fileID: 844729300073261252}
   m_Layer: 10
   m_Name: Fog Rock2
   m_TagString: FogRock
@@ -141,3 +142,15 @@ PolygonCollider2D:
       - {x: 0.62666595, y: -0.3022971}
       - {x: 0.26495254, y: 0.388784}
   m_UseDelaunayMesh: 0
+--- !u!114 &844729300073261252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683505689541190014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385b4df6c003c3f46bcfd9fdef3fa727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

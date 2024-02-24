@@ -14,32 +14,15 @@ public class StopParticleSystem : MonoBehaviour
         {
             DestroyParticalSystem.quset1_Counter += 1;
             rockInsideTrigger = true;
-
-            // Check if the particle system is valid
-            if (particleSystemToStop != null)
+			collision.gameObject.layer = LayerMask.NameToLayer("Default");
+			// Check if the particle system is valid
+			if (particleSystemToStop != null)
             {
                 // Stop the particle system
                 particleSystemToStop.Stop();
+                Destroy(this.gameObject);
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("FogRock"))
-        {
-            DestroyParticalSystem.quset1_Counter -= 1;
-            rockInsideTrigger = false;
-
-            // Check if the particle system is valid
-            if (particleSystemToStop != null)
-            {
-                // Start the particle system if the rock has exited the trigger zone
-                if (!rockInsideTrigger)
-                {
-                    particleSystemToStop.Play();
-                }
-            }
-        }
-    }
 }

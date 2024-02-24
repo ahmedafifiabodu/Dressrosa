@@ -5,6 +5,8 @@ using UnityEngine;
 public class MovementTrigger : MonoBehaviour
 {
     [SerializeField] private PlayerIsometricMovement player;
+    [SerializeField] private GameObject wall;
+
     private bool canSwithMovement;
     // Start is called before the first frame update
 
@@ -17,25 +19,21 @@ public class MovementTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && canSwithMovement == true)
         {
-            player._invertDirection = true;
+			wall.SetActive(true);
+			player._invertDirection = true;
             canSwithMovement = false;
-            StartCoroutine(waitTime());
+            
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && canSwithMovement == true)
-        {
-            player._invertDirection = false;
-            canSwithMovement = false;
-            StartCoroutine(waitTime());
-        }
-    }
-
-    IEnumerator waitTime()
-    {
-        yield return new WaitForSeconds(4);
-        canSwithMovement = true;
-    }
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		Debug.Log("Trigger Exit");
+		if (collision.gameObject.CompareTag("Player") && canSwithMovement == true)
+		{
+			player._invertDirection = false;
+			canSwithMovement = false;
+			
+		}
+	}
 }
