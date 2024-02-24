@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerIsometricMovement _playerMovement;
@@ -14,8 +13,15 @@ public class InputManager : MonoBehaviour
     private bool isQuestOpen = false;
     private bool isInventoryOpen = false;
 
+    public static InputManager Instance { get; private set; }
+
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         _playerInput = new InputSystem();
 
         _playerActions = _playerInput.Player;

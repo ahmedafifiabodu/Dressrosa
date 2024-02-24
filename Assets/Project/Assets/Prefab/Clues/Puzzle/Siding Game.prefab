@@ -125,6 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5078846429019199162}
+  - component: {fileID: 7744389669360241325}
   m_Layer: 0
   m_Name: Siding Game
   m_TagString: Untagged
@@ -149,6 +150,18 @@ Transform:
   - {fileID: 3401924087574410888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &7744389669360241325
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817090232864206081}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 9999
+  m_SortAtRoot: 0
 --- !u!1 &6837748986037052936
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3401924087574410888}
   - component: {fileID: 192131681857656324}
-  - component: {fileID: 8058169985515241242}
   m_Layer: 0
   m_Name: ManageGame
   m_TagString: Untagged
@@ -201,18 +213,6 @@ MonoBehaviour:
   size: 2
   _isQuestCompleted: 0
   activateChildren: 1
---- !u!210 &8058169985515241242
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837748986037052936}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!1001 &8461872077796116183
 PrefabInstance:
   m_ObjectHideFlags: 0

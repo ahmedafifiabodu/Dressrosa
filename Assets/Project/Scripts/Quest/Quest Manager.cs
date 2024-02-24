@@ -21,6 +21,16 @@ public class QuestManager : MonoBehaviour
 
     private TimeTravelSystem _timeTravelSystem;
 
+    public static QuestManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     internal void ResetQuests()
     {
         _timeTravelSystem = TimeTravelSystem.Instance;
@@ -63,19 +73,6 @@ public class QuestManager : MonoBehaviour
             _timeTravelSystem.canTravel = false;
             lastCompletedQuestIndex = questIndex;
         }
-
-        // quest.objectives[objectiveIndex].setCurrentObjectiveGameObjectToFalse();
-
-        /*
-                 // Check if the quest is completed
-        if (quest.IsCompleted)
-        {
-            // Update the last completed quest index
-            lastCompletedQuestIndex = questIndex;
-
-            // Update the UI
-            UpdateUI();
-        }*/
     }
 
     internal void UpdateUI()
@@ -127,9 +124,6 @@ public class QuestManager : MonoBehaviour
         quests[questIndex].IsActive = true;
         _timeTravelSystem.canTravel = true;
         lastCompletedQuestIndex = -1;
-
-        // Activate the clues for the quest objectives
-        ClueSystem.Instance.ActiveObjectives(questIndex);
     }
 
     private void Update() => UpdateUI();

@@ -9,7 +9,7 @@ public class StartDialog : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            character.startMovement();
+            character.StartMovement();
             Destroy(this.gameObject);
         }
     }

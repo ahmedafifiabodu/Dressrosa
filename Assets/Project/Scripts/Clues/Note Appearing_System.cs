@@ -4,9 +4,6 @@ using UnityEngine.UI;
 
 public class NoteAppearing_System : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private QuestManager _quest;
-
     [Header("Note")]
     [SerializeField] private Image noteImage;
 

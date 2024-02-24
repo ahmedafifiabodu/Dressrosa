@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class PlayerInformation : MonoBehaviour
 {
-    [SerializeField] private int _health = 100;
-    public float _stamina = 10;
-    [SerializeField] private float _energy = 10;
+    [SerializeField] internal float _energy = 10;
 
-    private float _maxStamina;
+    private float _maxEnergy;
 
     public static PlayerInformation Instance { get; private set; }
 
@@ -18,21 +16,21 @@ public class PlayerInformation : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start() => _maxStamina = _stamina;
+    private void Start() => _maxEnergy = _energy;
 
-    internal bool IsOutOfStamina => _stamina <= 0;
+    internal bool IsOutOfStamina => _energy <= 0;
 
     internal void DecreaseStamina(float amount)
     {
-        _stamina -= amount;
-        if (_stamina < 0)
-            _stamina = 0;
+        _energy -= amount;
+        if (_energy < 0)
+            _energy = 0;
     }
 
     internal void RechargeStamina(float amount)
     {
-        _stamina += amount;
-        if (_stamina > _maxStamina)
-            _stamina = _maxStamina;
+        _energy += amount;
+        if (_energy > _maxEnergy)
+            _energy = _maxEnergy;
     }
 }

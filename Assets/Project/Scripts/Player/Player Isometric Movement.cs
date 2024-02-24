@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class PlayerIsometricMovement : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private DialogManager dialogManager;
-
     [Header("Movement")]
     [SerializeField] internal bool _invertDirection = false;
 
@@ -15,18 +12,22 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private Vector2 lastMoveDirection;
-    private bool facingLeft = false;
     private PlayerInformation _playerInformation;
+    private DialogManager _dialogManager;
 
     private float isoMoveX;
     private float isoMoveY;
 
-    private void Start() => _playerInformation = PlayerInformation.Instance;
+    private void Start()
+    {
+        _playerInformation = PlayerInformation.Instance;
+        _dialogManager = DialogManager.Instance;
+    }
 
     internal void ProcessMove(Vector2 _input)
     {
         // Ignore movement input if a dialog is active
-        if (dialogManager.IsDialogActive)
+        if (_dialogManager.IsDialogActive)
         {
             _rb.velocity = Vector2.zero;
 
@@ -74,11 +75,6 @@ public class PlayerIsometricMovement : MonoBehaviour
         _rb.velocity = isoInput * _speed;
         Animate(isoInput);
         Stamina();
-
-        //if (_input.x < 0 && !facingLeft || _input.x > 0 && facingLeft)
-        //{
-        //    Flip();
-        //}
     }
 
     private void Stamina()
@@ -98,18 +94,6 @@ public class PlayerIsometricMovement : MonoBehaviour
 
         _animator.SetInteger(GameConstant.LASTMOVEX, (int)lastMoveDirection.x);
         _animator.SetInteger(GameConstant.LASTMOVEY, (int)lastMoveDirection.y);
-
-        // Check if the player is moving isometrically
-        //bool isMovingIsometrically = isoMoveX != 0 && isoMoveY != 0;
-        //_animator.SetBool("isDirectional", isMovingIsometrically);
-    }
-
-    private void Flip()
-    {
-        Vector3 _scale = transform.localScale;
-        _scale.x *= -1;
-        transform.localScale = _scale;
-        facingLeft = !facingLeft;
     }
 
     internal void Fire()

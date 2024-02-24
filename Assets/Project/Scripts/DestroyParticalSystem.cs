@@ -23,7 +23,7 @@ public class DestroyParticalSystem : MonoBehaviour
             player._invertDirection = false;
             for(int i = 0; i < charater.Length; i++) 
             {
-                charater[i].startMovement();
+                charater[i].StartMovement();
             }
             stone.SetActive(true);
             note.SetActive(true);

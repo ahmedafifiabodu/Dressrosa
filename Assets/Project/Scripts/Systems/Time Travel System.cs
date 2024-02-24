@@ -14,8 +14,10 @@ public class TimeTravelSystem : MonoBehaviour
     internal bool effectActivated;
 
     private PlayerInformation _playerInformation;
+    private AudioManager _audioManager;
     private DistanceShader _travelEffect;
     private float velocity;
+
     public static TimeTravelSystem Instance { get; private set; }
 
     private void Awake()
@@ -32,15 +34,16 @@ public class TimeTravelSystem : MonoBehaviour
         effectActivated = false;
 
         _playerInformation = PlayerInformation.Instance;
-        staminaBar.maxValue = _playerInformation._stamina;
-
+        _audioManager = AudioManager.Instance;
         _travelEffect = GetComponent<DistanceShader>();
+
+        staminaBar.maxValue = _playerInformation._energy;
     }
 
     internal void ActiveTimeTravel()
     {
         effectActivated = !effectActivated;
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.timetravel);
+        _audioManager.PlaySFX(_audioManager.timetravel);
     }
 
     // Update is called once per frame
@@ -48,7 +51,7 @@ public class TimeTravelSystem : MonoBehaviour
 
     private void TravelEffect()
     {
-        staminaBar.value = _playerInformation._stamina;
+        staminaBar.value = _playerInformation._energy;
 
         if (effectActivated)
         {

@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class PuzzleSystem : MonoBehaviour
 {
-    [SerializeField] private QuestManager _quest;
-    [SerializeField] private GameObject puzzle;
+    [SerializeField] internal GameObject puzzle;
     [SerializeField] private SildingGameManager _sildingPuzzle;
 
     private bool noteActive;

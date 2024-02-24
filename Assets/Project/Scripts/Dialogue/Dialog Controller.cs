@@ -1,23 +1,30 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogController : MonoBehaviour
 {
-    [SerializeField] internal DialogManager dialogManager;
-    [SerializeField] private DialogUI DialogUI;
     [SerializeField] private DialogScriptableObject CurrentDialogObject;
-    [SerializeField] private QuestManager questManager;
+    [SerializeField] private DialogUI _DialogUI;
     [SerializeField] private int questIndexToStart;
-    [SerializeField] private List<GameObject> objectsToEnable; // List of objects to enable
 
-    private void OnEnable() => DialogUI.NextButton.onClick.AddListener(OnInteract);
+    private QuestManager _questManager;
+    private DialogManager _dialogManager;
+    private ClueSystem _clueSystem;
 
-    private void OnDisable() => DialogUI.NextButton.onClick.RemoveListener(OnInteract);
+    private void Start()
+    {
+        _questManager = QuestManager.Instance;
+        _dialogManager = DialogManager.Instance;
+        _clueSystem = ClueSystem.Instance;
+    }
+
+    private void OnEnable() => _DialogUI.NextButton.onClick.AddListener(OnInteract);
+
+    private void OnDisable() => _DialogUI.NextButton.onClick.RemoveListener(OnInteract);
 
     internal void OnInteract()
     {
         // Call OnDialogStart when a dialog starts
-        dialogManager.OnDialogStart();
+        _dialogManager.OnDialogStart();
 
         // Get the next dialogue
         DialogItems nextDialog = CurrentDialogObject.GetNextDialog();
@@ -26,23 +33,21 @@ public class DialogController : MonoBehaviour
         if (nextDialog == null)
         {
             // Close the dialogue
-            DialogUI.gameObject.SetActive(false);
-
-            // Notify the quest manager to start a quest
-            questManager.StartQuest(questIndexToStart);
+            _DialogUI.gameObject.SetActive(false);
 
             // Notify the dialog manager that the dialog is complete
-            dialogManager.OnDialogComplete();
+            _dialogManager.OnDialogComplete();
 
-            // Enable the objects
-            if (objectsToEnable != null && objectsToEnable.Count > 0)
-                foreach (var obj in objectsToEnable)
-                    obj.SetActive(true);
+            // Notify the quest manager to start a quest
+            _questManager.StartQuest(questIndexToStart);
+
+            // Activate the clues for the quest
+            _clueSystem.ActiveObjectives(questIndexToStart);
 
             return;
         }
 
         // Show the next dialogue
-        DialogUI.ShowText(nextDialog, true);
+        _DialogUI.ShowText(nextDialog, true);
     }
 }

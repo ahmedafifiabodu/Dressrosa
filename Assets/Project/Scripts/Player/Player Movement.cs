@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private Vector2 lastMoveDirection;
-    private bool facingLeft = false;
     private float _timeSinceLastMove = 0;
     private PlayerInformation _playerInformation;
 
@@ -16,23 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     internal void ProcessMove(Vector2 _input)
     {
-        //To Make the player to stop from movement when out of stamina
-        /*        if (_playerInformation.IsOutOfStamina)
-                {
-                    _input = Vector2.zero;
-                }
-                else
-                {
-                    float moveX = _input.x;
-                    float moveY = _input.y;
-
-                    if (moveX != 0 || moveY != 0)
-                    {
-                        lastMoveDirection = _input;
-                        _playerInformation.DecreaseStamina(Time.fixedDeltaTime);
-                    }
-                }*/
-
         float moveX = _input.x;
         float moveY = _input.y;
 
@@ -81,16 +63,7 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Last Move Y", lastMoveDirection.y);
     }
 
-    private void Flip()
-    {
-        Vector3 _scale = transform.localScale;
-        _scale.x *= -1;
-        transform.localScale = _scale;
-        facingLeft = !facingLeft;
-    }
-
     internal void Fire()
     {
-        Debug.Log("Fire");
     }
 }

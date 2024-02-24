@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Cutscene : MonoBehaviour
 {
-    [SerializeField] private InputManager _inputManager;
     [SerializeField] private GameObject cutsceneParent;
     [SerializeField] private Image cutsceneBackground;
     [SerializeField] private Image cutsceneImage;
@@ -13,8 +12,14 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private AudioClip audioClip;
 
+    private InputManager _inputManager;
+    private AudioManager _audioManager;
+
     private void Start()
     {
+        _inputManager = InputManager.Instance;
+        _audioManager = AudioManager.Instance;
+
         // Set the size of the image to match the screen size
         RectTransform rectTransformCutsceneImage = cutsceneImage.GetComponent<RectTransform>();
         rectTransformCutsceneImage.sizeDelta = new Vector2(Screen.width, Screen.height);
@@ -27,7 +32,7 @@ public class Cutscene : MonoBehaviour
     {
         cutsceneParent.SetActive(true);
         _inputManager._playerInput.Disable();
-        AudioManager.Instance.PlaySFX(audioClip);
+        _audioManager.PlaySFX(audioClip);
         StartCoroutine(PlayCutscene());
     }
 

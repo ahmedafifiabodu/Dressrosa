@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void startMovement()
+    public void StartMovement()
     {
         if (points.Length > 0)
         {

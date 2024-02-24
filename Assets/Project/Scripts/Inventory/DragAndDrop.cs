@@ -37,9 +37,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         mycanvasGroup.blocksRaycasts = true;
 
-        // Check if the current parent is still the inventory canvas
-        // If it is, then the item was not dropped on a valid slot
-        // So, reset its position
         if (transform.parent == _inventoryManger._inventoryCanvas.transform)
             ResetPosition();
     }
