@@ -17,4 +17,6 @@ public static class GameConstant
     public static int ISWALKING = Animator.StringToHash("isWalking");
 
     public static string PLAYERTAG = "Player";
+    public static string FOGCIRCLE = "Fog Circle";
+    public static string FOGROCK = "FogRock";
 }

@@ -8,13 +8,11 @@ public class DialogController : MonoBehaviour
 
     private QuestManager _questManager;
     private DialogManager _dialogManager;
-    private ClueSystem _clueSystem;
 
     private void Start()
     {
         _questManager = QuestManager.Instance;
         _dialogManager = DialogManager.Instance;
-        _clueSystem = ClueSystem.Instance;
     }
 
     private void OnEnable() => _DialogUI.NextButton.onClick.AddListener(OnInteract);
@@ -40,9 +38,6 @@ public class DialogController : MonoBehaviour
 
             // Notify the quest manager to start a quest
             _questManager.StartQuest(questIndexToStart);
-
-            // Activate the clues for the quest
-            _clueSystem.ActiveObjectives(questIndexToStart);
 
             return;
         }

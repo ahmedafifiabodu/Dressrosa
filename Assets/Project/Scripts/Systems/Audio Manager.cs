@@ -10,6 +10,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource WalkSFXSource;
     [SerializeField] private AudioSource dialogSource;
 
+    [SerializeField] private AudioSource waterSource;
+    [SerializeField] private AudioSource fireSource;
+
     [Header("Audio Clip")]
     [SerializeField] private AudioClip background;
 
@@ -19,6 +22,9 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] internal AudioClip dialogSound;
     [SerializeField] internal AudioClip win;
+
+    [SerializeField] internal AudioClip water;
+    [SerializeField] internal AudioClip fire;
 
     public static AudioManager Instance { get; private set; }
 
@@ -48,6 +54,19 @@ public class AudioManager : MonoBehaviour
     }
 
     internal void PlayDialog(AudioClip clip) => dialogSource.PlayOneShot(clip);
+
+    internal void PlayWater(AudioClip clip)
+    {
+        Debug.Log("Playing water");
+        waterSource.clip = clip;
+        waterSource.Play();
+    }
+
+    internal void PlayFire(AudioClip clip)
+    {
+        fireSource.clip = clip;
+        fireSource.Play();
+    }
 
     internal void PlayBackground()
     {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dbeabe0fdfd0d43ab4e0294f192dee, type: 3}
   m_Name: Justice Quest
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 9386e034c568ec24fba2d0f78abd1139, type: 3}
+  icon: {fileID: 21300000, guid: 0a9b245146c5b9246b838e3fce3e5468, type: 3}
   questName: Waterfall
   objectives:
   - objectiveName: 

@@ -30,7 +30,7 @@ public class InventoryManger : MonoBehaviour
         newItemSlotImage.sprite = _itemParameters._itemSpriteRenderer.sprite;
         newItemSlotImage.type = Image.Type.Simple;
 
-        DragAndDrop newItemSlotDragandDrop = newItemSlot.GetComponent<DragAndDrop>();
+        InventoryDragAndDrop newItemSlotDragandDrop = newItemSlot.GetComponent<InventoryDragAndDrop>();
         newItemSlotDragandDrop.initPos = newItemSlot.transform.position;
         newItemSlotDragandDrop.id = _itemParameters._slotId;
         newItemSlotDragandDrop.myCanvas = _mainCanvas;

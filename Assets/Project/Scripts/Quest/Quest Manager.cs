@@ -20,6 +20,7 @@ public class QuestManager : MonoBehaviour
     internal int lastCompletedQuestIndex = -1;
 
     private TimeTravelSystem _timeTravelSystem;
+    private ClueSystem _clueSystem;
 
     public static QuestManager Instance { get; private set; }
 
@@ -34,6 +35,7 @@ public class QuestManager : MonoBehaviour
     internal void ResetQuests()
     {
         _timeTravelSystem = TimeTravelSystem.Instance;
+        _clueSystem = ClueSystem.Instance;
 
         foreach (var quest in quests)
         {
@@ -124,6 +126,9 @@ public class QuestManager : MonoBehaviour
         quests[questIndex].IsActive = true;
         _timeTravelSystem.canTravel = true;
         lastCompletedQuestIndex = -1;
+
+        // Activate the objectives for the quest
+        _clueSystem.ActiveObjectives(questIndex);
     }
 
     private void Update() => UpdateUI();

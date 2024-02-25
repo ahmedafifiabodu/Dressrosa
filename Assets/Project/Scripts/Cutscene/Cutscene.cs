@@ -47,7 +47,7 @@ public class Cutscene : MonoBehaviour
         }
 
         cutsceneParent.SetActive(false); // Deactivate the image after the cutscene
-        _inputManager._playerInput.Enable(); // Enable player's input
+        _inputManager._playerInput.Enable(); // Enable _playerMovement's input
         cutsceneParent.SetActive(false); // Deactivate the image after the cutscene
     }
 

@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dbeabe0fdfd0d43ab4e0294f192dee, type: 3}
   m_Name: Freedom Quest
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d6b00071514c87949a10b3798a07cc15, type: 3}
-  questName: Free
+  icon: {fileID: 21300000, guid: ae70bd785ac9d5841873acf52730c563, type: 3}
+  questName: Freedom
   objectives:
-  - objectiveName: FInd The Key
-    description: You have to find the key. Try search around you house.
+  - objectiveName: Free the Children
+    description: The children have being heldas hostage. Try to free them.
     isCompleted: 0
-  - objectiveName: Destory The Stone
-    description: Clue #2
+  - objectiveName: Read The Given Note
+    description: The Children have given you a note. It might be worth reading.
+    isCompleted: 0
+  - objectiveName: Collect The White Gem
+    description: This gem will help you in your journey, worth collect it.
+    isCompleted: 0
+  - objectiveName: Use The Gem Power
+    description: With the Gem Power, Destory these blockers.
     isCompleted: 0

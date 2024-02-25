@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stoneCanvas: {fileID: 2096963228888797407}
+  scene: {fileID: 0}
 --- !u!1 &2096963228888797407
 GameObject:
   m_ObjectHideFlags: 0

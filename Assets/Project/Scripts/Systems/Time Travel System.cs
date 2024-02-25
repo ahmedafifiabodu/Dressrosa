@@ -6,9 +6,9 @@ public class TimeTravelSystem : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private float smoothTime;
+    [SerializeField] private Slider staminaBar;
     [SerializeField] private List<GameObject> baseWorld;
     [SerializeField] private List<GameObject> reverseWorld;
-    [SerializeField] private Slider staminaBar;
 
     internal bool canTravel;
     internal bool effectActivated;
