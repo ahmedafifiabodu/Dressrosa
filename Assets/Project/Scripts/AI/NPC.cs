@@ -70,27 +70,18 @@ public class NPC : MonoBehaviour
             moveToPointCoroutine = null;
         }
 
-        currentTargetIndex = 0;
-        moveToTargetPoint = true;
+        StartCoroutine(MoveToTargetPoint());
     }
 
-    private void Update()
+    private IEnumerator MoveToTargetPoint()
     {
-        if (moveToTargetPoint)
-        {
-            MoveToTargetPoint();
-        }
-    }
-
-    private void MoveToTargetPoint()
-    {
-        if (currentTargetIndex < _targetPositions.Length)
+        while (currentTargetIndex < _targetPositions.Length)
         {
             var targetPoint = new Vector3(
                 _targetPositions[currentTargetIndex].position.x,
                 _targetPositions[currentTargetIndex].position.y, 0);
 
-            if (Vector2.Distance(transform.position, targetPoint) > 0.01f)
+            while (Vector2.Distance(transform.position, targetPoint) > 0.01f)
             {
                 animator.SetBool(GameConstant.ISWALKING, true);
                 animator.SetBool(GameConstant.ISIDLE, false);
@@ -103,21 +94,21 @@ public class NPC : MonoBehaviour
 
                 transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-            }
-            else
-            {
-                animator.SetBool(GameConstant.ISWALKING, false);
-                animator.SetBool(GameConstant.ISIDLE, true);
 
-                // Move to the next target position
-                currentTargetIndex++;
-
-                if (currentTargetIndex >= _targetPositions.Length)
-                {
-                    moveToTargetPoint = false;
-                    currentTargetIndex = 0;
-                }
+                yield return null;
             }
+
+            animator.SetBool(GameConstant.ISWALKING, false);
+            animator.SetBool(GameConstant.ISIDLE, true);
+
+            // Move to the next target position
+            currentTargetIndex++;
+
+            yield return null;
         }
+
+        // Reset the currentTargetIndex and stop moving to target point
+        currentTargetIndex = 0;
+        moveToTargetPoint = false;
     }
 }

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8dbeabe0fdfd0d43ab4e0294f192dee, type: 3}
-  m_Name: Freedom Quest
+  m_Name: 1- Freedom Quest
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ae70bd785ac9d5841873acf52730c563, type: 3}
   questName: Freedom
+  needsDialog: 1
   objectives:
   - objectiveName: Free the Children
     description: The children have being heldas hostage. Try to free them.

@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8dbeabe0fdfd0d43ab4e0294f192dee, type: 3}
-  m_Name: Peace Quest
+  m_Name: 3- Green Gem Quest
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 788909d18d97f274885ba50b3f46e8f6, type: 3}
-  questName: End
+  icon: {fileID: 21300000, guid: 134258a3347e4b34da1299e210fb9ecd, type: 3}
+  questName: Green Gem
   objectives:
-  - objectiveName: 
-    description: Clue #1
+  - objectiveName: Read The Note
+    description: 'Who knows what this note can hold.
+
+      But watch out, the curse
+      still lingers in the air.'
     isCompleted: 0
-  - objectiveName: 
-    description: Clue #2
+  - objectiveName: Solve the Mystery
+    description: Find the Hidden Gem.
     isCompleted: 0

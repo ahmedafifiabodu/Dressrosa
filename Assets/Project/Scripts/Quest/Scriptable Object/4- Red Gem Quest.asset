@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dbeabe0fdfd0d43ab4e0294f192dee, type: 3}
+  m_Name: 4- Red Gem Quest
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 16fb6f77c8a9ba34a9203c1c9ff88bdc, type: 3}
+  questName: Red Gem
+  needsDialog: 0
+  objectives:
+  - objectiveName: Read The Note
+    description: 'The wizard has escped, but left the last gem.
+
+      Find it before
+      it disappear.'
+    isCompleted: 1
+  - objectiveName: Solve the Mystery
+    description: Find the Hidden Gem.
+    isCompleted: 1

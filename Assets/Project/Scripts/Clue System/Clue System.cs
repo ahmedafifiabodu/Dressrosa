@@ -26,6 +26,23 @@ public class ClueSystem : MonoBehaviour
         _timeTravelSystem = TimeTravelSystem.Instance;
         _inputManager = InputManager.Instance;
         _questManager = QuestManager.Instance;
+
+        DeactivateAllClues();
+    }
+
+    private void DeactivateAllClues()
+    {
+        foreach (var clueGroup in questObjectives)
+        {
+            foreach (var clues in clueGroup.clues)
+            {
+                foreach (var clue in clues.clues)
+                {
+                    if (clue.clue != null && clue.deactivateAtStart)
+                        clue.clue.SetActive(false);
+                }
+            }
+        }
     }
 
     internal void ActiveObjectives(int questIndex)
@@ -83,8 +100,7 @@ public class ClueSystem : MonoBehaviour
             }
 
             // Activate the first inactive clue
-            if (firstInactiveClue != null)
-                firstInactiveClue.clue.SetActive(true);
+            firstInactiveClue?.clue.SetActive(true);
         }
         else
         {
@@ -129,10 +145,6 @@ public class ClueSystem : MonoBehaviour
                             // Deactivate the current clue
                             if (!clue.remainActiveAfterCompletion)
                                 clue.clue.SetActive(false);
-
-                            // If the clue has a PuzzleSystem, deactivate the puzzle GameObject
-                            if (_puzzleGame != null && _puzzleGame.puzzle != null)
-                                _puzzleGame.puzzle.SetActive(false);
 
                             // Activate the next clue
                             if (i + 1 < obj.Count && obj[i + 1].clues.Count > 0)

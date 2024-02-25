@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
-    [Header("Quests")]
     [SerializeField] internal List<Quest> quests = new();
 
     [Header("UI")]
@@ -74,6 +73,8 @@ public class QuestManager : MonoBehaviour
         {
             _timeTravelSystem.canTravel = false;
             lastCompletedQuestIndex = questIndex;
+
+            CheckTheQuests();
         }
     }
 
@@ -129,6 +130,32 @@ public class QuestManager : MonoBehaviour
 
         // Activate the objectives for the quest
         _clueSystem.ActiveObjectives(questIndex);
+    }
+
+    private void CheckTheQuests()
+    {
+        int activeQuestIndex = GetActiveQuestIndex();
+
+        // If there is no active quest
+        if (activeQuestIndex == -1)
+        {
+            // Loop through the quests list
+            for (int i = 0; i < quests.Count; i++)
+            {
+                Quest quest = quests[i];
+
+                if (!quest.IsCompleted && quest.needsDialog)
+                    break;
+
+                // If the quest is inactive, not completed and doesn't need a dialog
+                if (!quest.IsActive && !quest.IsCompleted && !quest.needsDialog)
+                {
+                    // Start the quest
+                    StartQuest(i);
+                    break; // Exit the loop as we've found a quest to start
+                }
+            }
+        }
     }
 
     private void Update() => UpdateUI();

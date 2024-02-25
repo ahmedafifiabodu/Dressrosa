@@ -117,7 +117,10 @@ public class SildingGameManager : MonoBehaviour
         foreach (var piece in pieces)
             piece.gameObject.SetActive(false);
 
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds(delay);
+
+        puzzleTexture.SetActive(false);
+        Destroy(gameObject);
     }
 
     private IEnumerator WaitShuffle(float duration)

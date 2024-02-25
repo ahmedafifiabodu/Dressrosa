@@ -6,6 +6,7 @@ public class Quest : ScriptableObject
 {
     [SerializeField] internal Sprite icon;
     [SerializeField] internal string questName;
+    [SerializeField] internal bool needsDialog;
     [SerializeField] internal List<Objective> objectives = new();
 
     internal bool IsCompleted
