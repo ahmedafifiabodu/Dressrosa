@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class DialogUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text DialogBoxText;
+    [SerializeField] private TMP_Text DialogBoxLeftText;
+    [SerializeField] private TMP_Text DialogBoxRightText;
     [SerializeField] internal Button NextButton;
     [SerializeField] private float TypeTextDelay = 0.05f;
     [SerializeField] private Image panelImage;
 
     private bool isTyping = false;
-    private string originalText = "";
+
+    private AudioManager audioManager;
+
+    private void Awake() => audioManager = AudioManager.Instance;
 
     public void ChangeImage(Texture2D newTexture)
     {
@@ -19,6 +23,7 @@ public class DialogUI : MonoBehaviour
         {
             Sprite newSprite =
                 Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), Vector2.zero);
+
             panelImage.sprite = newSprite;
         }
     }
@@ -26,47 +31,52 @@ public class DialogUI : MonoBehaviour
     public void ShowText(DialogItems dialogItem, bool shouldType)
     {
         gameObject.SetActive(true);
-        StopAllCoroutines(); // Stop any ongoing typing
+        StopAllCoroutines();
+
         if (shouldType)
         {
             ChangeImage(dialogItem.Panel);
-            AudioManager.Instance.PlayDialog(dialogItem.Sound);
-            if (dialogItem.LeftWrite)
-                DialogBoxText.alignment = TextAlignmentOptions.Left;
-            else
-                DialogBoxText.alignment = TextAlignmentOptions.Right;
+            audioManager.PlayDialog(dialogItem.Sound);
+
             ChangeImage(dialogItem.Panel);
 
-            originalText = dialogItem.DialogText; // Store the original text
-            StartCoroutine(TypeText(dialogItem.DialogText));
-        }
-        else
-        {
-            DialogBoxText.text = dialogItem.DialogText;
+            if (dialogItem.LeftWrite)
+            {
+                DialogBoxRightText.text = "";
+                StartCoroutine(TypeText(dialogItem.DialogText, DialogBoxLeftText));
+            }
+            else
+            {
+                DialogBoxLeftText.text = "";
+                StartCoroutine(TypeText(dialogItem.DialogText, DialogBoxRightText));
+            }
         }
     }
 
-    private IEnumerator TypeText(string text)
+    private IEnumerator TypeText(string text, TMP_Text tMP_Text)
     {
         isTyping = true;
-        DialogBoxText.text = ""; // Clear text initially
+        tMP_Text.text = ""; // Clear text initially
+
         for (int i = 0; i < text.Length; i++)
         {
             if (!isTyping)
-                break; // Break the loop if typing is interrupted
-            DialogBoxText.text += text[i];
+                break;
+
+            tMP_Text.text += text[i];
             yield return new WaitForSeconds(TypeTextDelay);
         }
-        isTyping = false; // Typing finished
+
+        isTyping = false;
     }
 
-    public void SkipTyping()
-    {
-        if (isTyping)
-        {
-            StopCoroutine(nameof(TypeText));
-            DialogBoxText.text = originalText; // Restore the original text
-            isTyping = false;
-        }
-    }
+    //public void SkipTyping()
+    //{
+    //    if (isTyping)
+    //    {
+    //        StopCoroutine(nameof(TypeText));
+    //        DialogBoxText.text = originalText; // Restore the original text
+    //        isTyping = false;
+    //    }
+    //}
 }

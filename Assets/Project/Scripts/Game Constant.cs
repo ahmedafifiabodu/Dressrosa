@@ -5,6 +5,8 @@ public static class GameConstant
     public static int sortingOrderPixelPerUnit = 100;
 
     //Animator Hashes
+    public static int ANIMATORSPEED = Animator.StringToHash("Animator Speed");
+
     public static int MOVEMAGNITUDE = Animator.StringToHash("Move Magnitude");
 
     public static int MOVEX = Animator.StringToHash("Move X");

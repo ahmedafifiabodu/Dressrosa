@@ -10,13 +10,17 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] private TimeTravelSystem travelEffecrt;
     [SerializeField] private Animator _animator;
+    [SerializeField] private float _animatorSpeed;
 
-    private Vector2 lastMoveDirection;
     private PlayerInformation _playerInformation;
     private DialogManager _dialogManager;
+    private AudioManager _audioManager;
 
+    private Vector2 lastMoveDirection;
     private float isoMoveX;
     private float isoMoveY;
+    private float previousDrag = 0f;
+    private float animatorSpeed = 0;
 
     public static PlayerIsometricMovement Instance { get; private set; }
 
@@ -32,6 +36,7 @@ public class PlayerIsometricMovement : MonoBehaviour
     {
         _playerInformation = PlayerInformation.Instance;
         _dialogManager = DialogManager.Instance;
+        _audioManager = AudioManager.Instance;
     }
 
     internal void ProcessMove(Vector2 _input)
@@ -62,7 +67,7 @@ public class PlayerIsometricMovement : MonoBehaviour
         Vector2 isoInput = new(isoMoveX, isoMoveY);
 
         if (isoMoveX == 0 && isoMoveY == 0)
-            AudioManager.Instance.StopWalkSFX();
+            _audioManager.StopWalkSFX();
 
         if (isoMoveX != 0 || isoMoveY != 0)
             lastMoveDirection = isoInput;
@@ -70,9 +75,18 @@ public class PlayerIsometricMovement : MonoBehaviour
         if (travelEffecrt.effectActivated)
         {
             //isoInput *= _crippledSpeed;
+
+            if (_rb.drag == 0 && !_playerInformation._isEnergyRecharging)
+                _rb.drag = previousDrag;
+
             _rb.drag += Mathf.Abs(isoInput.x) * Time.deltaTime * _crippledSpeed;
             _rb.drag += Mathf.Abs(isoInput.y) * Time.deltaTime * _crippledSpeed;
-            _animator.speed = 0.5f;
+
+            animatorSpeed = 1 - (_rb.drag / 20);
+            animatorSpeed = Mathf.Clamp(animatorSpeed, 0.1f, 2f);
+
+            _animator.speed = animatorSpeed;
+
             if (_playerInformation.IsOutOfStamina)
             {
                 _rb.drag = 0;
@@ -80,7 +94,11 @@ public class PlayerIsometricMovement : MonoBehaviour
             }
         }
         else
+        {
+            previousDrag = _rb.drag;
+            _rb.drag = 0;
             _animator.speed = 1.5f;
+        }
 
         _rb.velocity = isoInput * _speed;
         Animate(isoInput);
@@ -97,13 +115,13 @@ public class PlayerIsometricMovement : MonoBehaviour
 
     private void Animate(Vector2 _input)
     {
-        _animator.SetInteger(GameConstant.MOVEX, (int)_input.x);
-        _animator.SetInteger(GameConstant.MOVEY, (int)_input.y);
+        _animator.SetFloat(GameConstant.MOVEX, _input.x);
+        _animator.SetFloat(GameConstant.MOVEY, _input.y);
 
-        _animator.SetInteger(GameConstant.MOVEMAGNITUDE, (int)_input.magnitude);
+        _animator.SetFloat(GameConstant.MOVEMAGNITUDE, _input.magnitude);
 
-        _animator.SetInteger(GameConstant.LASTMOVEX, (int)lastMoveDirection.x);
-        _animator.SetInteger(GameConstant.LASTMOVEY, (int)lastMoveDirection.y);
+        _animator.SetFloat(GameConstant.LASTMOVEX, lastMoveDirection.x);
+        _animator.SetFloat(GameConstant.LASTMOVEY, lastMoveDirection.y);
     }
 
     internal void Fire()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Cutscene : MonoBehaviour
@@ -11,9 +12,12 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private List<Sprite> cutsceneFrames;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private AudioClip audioClip;
+    [SerializeField] private bool isFinalCutscene = false;
 
     private InputManager _inputManager;
     private AudioManager _audioManager;
+
+    internal bool IsCutscenePlaying { get; private set; }
 
     private void Start()
     {
@@ -30,6 +34,8 @@ public class Cutscene : MonoBehaviour
 
     public void StartCutscene()
     {
+        IsCutscenePlaying = true;
+
         cutsceneParent.SetActive(true);
         _inputManager._playerInput.Disable();
         _audioManager.PlaySFX(audioClip);
@@ -42,13 +48,18 @@ public class Cutscene : MonoBehaviour
         {
             cutsceneImage.sprite = frame;
             yield return FadeIn();
-            yield return new WaitForSeconds(2); // Wait for 2 seconds before showing the next frame
+            yield return new WaitForSeconds(2);
             yield return FadeOut();
         }
 
-        cutsceneParent.SetActive(false); // Deactivate the image after the cutscene
-        _inputManager._playerInput.Enable(); // Enable _playerMovement's input
-        cutsceneParent.SetActive(false); // Deactivate the image after the cutscene
+        cutsceneParent.SetActive(false);
+        _inputManager._playerInput.Enable();
+        cutsceneParent.SetActive(false);
+
+        if (isFinalCutscene)
+            ReturnToMainMenu();
+
+        IsCutscenePlaying = false;
     }
 
     private IEnumerator FadeIn()
@@ -76,4 +87,6 @@ public class Cutscene : MonoBehaviour
             yield return null;
         }
     }
+
+    private void ReturnToMainMenu() => SceneManager.LoadScene(0);
 }

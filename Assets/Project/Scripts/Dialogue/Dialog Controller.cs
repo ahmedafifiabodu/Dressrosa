@@ -4,6 +4,7 @@ public class DialogController : MonoBehaviour
 {
     [SerializeField] private DialogScriptableObject CurrentDialogObject;
     [SerializeField] private DialogUI _DialogUI;
+    [SerializeField] internal bool shouldStartQuestAfterDialog;
     [SerializeField] private int questIndexToStart;
 
     private QuestManager _questManager;
@@ -33,11 +34,17 @@ public class DialogController : MonoBehaviour
             // Close the dialogue
             _DialogUI.gameObject.SetActive(false);
 
-            // Notify the dialog manager that the dialog is complete
-            _dialogManager.OnDialogComplete();
-
-            // Notify the quest manager to start a quest
-            _questManager.StartQuest(questIndexToStart);
+            // Check if a quest should start after the dialog
+            if (shouldStartQuestAfterDialog) // Add this line
+            {
+                _questManager.StartQuest(questIndexToStart);
+                _dialogManager.OnDialogComplete();
+            }
+            else
+            {
+                GetComponent<DialogController>().enabled = false;
+                _dialogManager.IsDialogActive = false;
+            }
 
             return;
         }

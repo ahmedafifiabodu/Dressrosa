@@ -4,6 +4,7 @@ public class PlayerInformation : MonoBehaviour
 {
     [SerializeField] internal float _energy = 10;
 
+    internal bool _isEnergyRecharging = false;
     private float _maxEnergy;
 
     public static PlayerInformation Instance { get; private set; }
@@ -30,7 +31,12 @@ public class PlayerInformation : MonoBehaviour
     internal void RechargeStamina(float amount)
     {
         _energy += amount;
+        _isEnergyRecharging = true;
+
         if (_energy > _maxEnergy)
+        {
             _energy = _maxEnergy;
+            _isEnergyRecharging = false;
+        }
     }
 }

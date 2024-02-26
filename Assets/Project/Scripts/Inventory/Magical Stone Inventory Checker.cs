@@ -4,8 +4,12 @@ public class MagicalStoneChecker : MonoBehaviour
 {
     [SerializeField] private GameObject _stoneCanvas;
     [SerializeField] private Cutscene scene;
+    [SerializeField] private Cutscene creditsCutscene;
 
-    public bool AreAllSlotsFilled()
+    private bool firstCutScenePlayed = false;
+    private bool secondCutScenePlayed = false;
+
+    private bool AreAllSlotsFilled()
     {
         // Get all Slot components in the inventory
         Slot[] slots = _stoneCanvas.GetComponentsInChildren<Slot>();
@@ -18,14 +22,20 @@ public class MagicalStoneChecker : MonoBehaviour
                 return false;
         }
 
-        // If we've checked all slots and none of them are empty, return true
         return true;
     }
 
-    // For Testing
     private void Update()
     {
-        if (AreAllSlotsFilled())
+        if (AreAllSlotsFilled() && !firstCutScenePlayed)
+        {
             scene.StartCutscene();
+            firstCutScenePlayed = true;
+        }
+        else if (AreAllSlotsFilled() && !scene.IsCutscenePlaying && !secondCutScenePlayed)
+        {
+            creditsCutscene.StartCutscene();
+            secondCutScenePlayed = true;
+        }
     }
 }

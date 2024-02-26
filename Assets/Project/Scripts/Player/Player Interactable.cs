@@ -3,36 +3,35 @@ using UnityEngine;
 
 public class PlayerInteractable : MonoBehaviour
 {
-    [SerializeField] private InputManager _inputManager;
     [SerializeField] private TextMeshProUGUI _promptMessage;
-    [SerializeField] private QuestManager questManager;
-    [SerializeField] private DialogManager _DialogManager;
+
+    private InputManager _inputManager;
+    private QuestManager _questManager;
+    private DialogManager _DialogManager;
 
     private Interactable _currentInteractable;
     private DialogController _currentDialog;
     private InventoryParameters _inventoryParameters;
-    private AudioManager audioManager;
+    private AudioManager _audioManager;
 
-    private void Start() => audioManager = AudioManager.Instance;
+    private void Start()
+    {
+        _audioManager = AudioManager.Instance;
+        _inputManager = InputManager.Instance;
+        _DialogManager = DialogManager.Instance;
+        _questManager = QuestManager.Instance;
+    }
 
     private void Update()
     {
         if (_currentInteractable != null && _inputManager._playerInput.Player.Interact.triggered)
-        {
-            audioManager.PlaySFX(audioManager.interact);
             _currentInteractable.BaseInteract();
-        }
 
         if (_currentDialog != null && _inputManager._playerInput.Player.Interact.triggered)
-        {
-            audioManager.PlaySFX(audioManager.interact);
             _currentDialog.OnInteract();
-        }
 
         if (_inventoryParameters != null && _inputManager._playerInput.Player.Interact.triggered)
         {
-            audioManager.PlaySFX(audioManager.interact);
-
             // Check if there is an available slot
             Slot[] slots = _inventoryParameters._inventoryManger._inventoryCanvas.GetComponentsInChildren<Slot>();
             Slot availableSlot = System.Array.Find(slots,
@@ -49,24 +48,29 @@ public class PlayerInteractable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int activeQuestIndex = questManager.GetActiveQuestIndex();
-
         if (collision.TryGetComponent<Interactable>(out var _interactable))
         {
             if (collision.TryGetComponent<DialogController>(out var _dialogController))
             {
                 // If there's an active quest and the DialogController is enabled, allow interaction
-                if (activeQuestIndex == -1 && _dialogController.enabled)
+                if (_dialogController.enabled)
                 {
+                    _audioManager.PlaySFX(_audioManager.interact);
+
                     _promptMessage.gameObject.SetActive(true);
                     _promptMessage.text = _interactable._promptMessage;
                     _currentInteractable = _interactable;
-                    _DialogManager.dialogComponents[_DialogManager.currentDialogIndex].Mark.SetActive(true);
+
+                    if (_DialogManager.currentDialogIndex >= 0 && _DialogManager.currentDialogIndex < _DialogManager.dialogComponents.Count)
+                        _DialogManager.dialogComponents[_DialogManager.currentDialogIndex].Mark.SetActive(true);
+
                     _currentDialog = _dialogController;
                 }
             }
             else if (collision.TryGetComponent<InventoryParameters>(out var _inventoryParameter))
             {
+                _audioManager.PlaySFX(_audioManager.interact);
+
                 _promptMessage.gameObject.SetActive(true);
                 _promptMessage.text = _interactable._promptMessage;
                 _currentInteractable = _interactable;
@@ -74,7 +78,8 @@ public class PlayerInteractable : MonoBehaviour
             }
             else
             {
-                // If there's no DialogController, allow interaction regardless of whether there's an active quest
+                _audioManager.PlaySFX(_audioManager.interact);
+
                 _promptMessage.gameObject.SetActive(true);
                 _promptMessage.text = _interactable._promptMessage;
                 _currentInteractable = _interactable;

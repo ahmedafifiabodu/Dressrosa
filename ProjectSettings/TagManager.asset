@@ -40,9 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1584340931
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: walls
+  - name: Enviroment
     uniqueID: 2137630181
+    locked: 0
+  - name: Player
+    uniqueID: 2262390017
     locked: 0

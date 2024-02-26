@@ -14,20 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogItems:
   - dialogText: Did you hear about what happened to our neighbor?
-    sound: {fileID: 8300000, guid: 1964e90451c754a4781cd250d90ac71a, type: 3}
-    panel: {fileID: 2800000, guid: 0a7a2341c6a8c814c9817604ba6a8d38, type: 3}
+    sound: {fileID: 8300000, guid: 377943da94bdcbd4db97bdf3e5ef10ef, type: 3}
+    panel: {fileID: 2800000, guid: 75b25dbc4a517804380d9254e764cac8, type: 3}
     leftWrite: 1
   - dialogText: No what happened?
-    sound: {fileID: 8300000, guid: bec1f73c004b1904bb382c7edfe3633a, type: 3}
-    panel: {fileID: 2800000, guid: 62a9bcc938baf0a4aa3eded89d7c05ee, type: 3}
+    sound: {fileID: 8300000, guid: 6807cb29c516a9b4c9e0479af2d467a8, type: 3}
+    panel: {fileID: 2800000, guid: ce177083ce158b04b850e199b67d411a, type: 3}
     leftWrite: 0
   - dialogText: Her children got kidnapped by the wizard
-    sound: {fileID: 8300000, guid: 29050e30a9d9f06489efbb78205a61c2, type: 3}
-    panel: {fileID: 2800000, guid: 0a7a2341c6a8c814c9817604ba6a8d38, type: 3}
+    sound: {fileID: 8300000, guid: 377943da94bdcbd4db97bdf3e5ef10ef, type: 3}
+    panel: {fileID: 2800000, guid: 75b25dbc4a517804380d9254e764cac8, type: 3}
     leftWrite: 1
   - dialogText: OHH NO, I hope they find them soon
-    sound: {fileID: 8300000, guid: 15594c104301a7d45b6c738d95774208, type: 3}
-    panel: {fileID: 2800000, guid: 62a9bcc938baf0a4aa3eded89d7c05ee, type: 3}
+    sound: {fileID: 8300000, guid: 6807cb29c516a9b4c9e0479af2d467a8, type: 3}
+    panel: {fileID: 2800000, guid: ce177083ce158b04b850e199b67d411a, type: 3}
+    leftWrite: 0
+  - dialogText: Mr Crane, help us. PLEASE !!
+    sound: {fileID: 8300000, guid: 377943da94bdcbd4db97bdf3e5ef10ef, type: 3}
+    panel: {fileID: 2800000, guid: 75b25dbc4a517804380d9254e764cac8, type: 3}
+    leftWrite: 1
+  - dialogText: KHHRRRRRRRRR
+    sound: {fileID: 8300000, guid: e9d9796a0e479864280539076cbe0ac1, type: 3}
+    panel: {fileID: 2800000, guid: d335a4c6c2de86645939477ecc5c8a18, type: 3}
     leftWrite: 0
   isLoopable: 0
   isOrdered: 1

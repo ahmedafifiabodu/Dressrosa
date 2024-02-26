@@ -17,6 +17,7 @@ public class StonePuzzleCollider : MonoBehaviour
             stonePuzzle.quset1_Counter += 1;
 
             GetComponent<Collider2D>().enabled = false;
+
             collision.gameObject.SetActive(false);
         }
     }

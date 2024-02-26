@@ -70,7 +70,7 @@ namespace TMPro.Examples
         {
             if (CameraTarget == null)
             {
-                // If we don't have a target (assigned by the _playerMovement, create a dummy in the center of the scene).
+                // If we don't have a target (assigned by the _playerMovement, create a dummy in the center of the _cutScene).
                 dummyTarget = new GameObject("Camera Target").transform;
                 CameraTarget = dummyTarget;
             }

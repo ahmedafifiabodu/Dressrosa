@@ -5,7 +5,6 @@ public class DialogManager : MonoBehaviour
 {
     [SerializeField] internal List<DialogComponent> dialogComponents = new();
 
-    private AudioManager _audioManager;
     public static DialogManager Instance { get; private set; }
 
     private void Awake()
@@ -16,13 +15,11 @@ public class DialogManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public bool IsDialogActive { get; private set; }
+    internal bool IsDialogActive { get; set; }
     internal int currentDialogIndex = 0;
 
     private void Start()
     {
-        _audioManager = AudioManager.Instance;
-
         // Start the first dialog and deactivate all others
         for (int i = 0; i < dialogComponents.Count; i++)
         {
@@ -45,19 +42,12 @@ public class DialogManager : MonoBehaviour
 
         // Activate the next dialog
         if (currentDialogIndex < dialogComponents.Count)
-        {
             dialogComponents[currentDialogIndex].Controller.enabled = true;
-            //dialogComponents[currentDialogIndex].Mark.SetActive(true);
-        }
 
         IsDialogActive = false;
     }
 
-    internal void OnDialogStart()
-    {
-        _audioManager.PlaySFX(_audioManager.dialogSound);
-        IsDialogActive = true;
-    }
+    internal void OnDialogStart() => IsDialogActive = true;
 }
 
 [System.Serializable]

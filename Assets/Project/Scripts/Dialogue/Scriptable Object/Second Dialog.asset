@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025bc18629f74145a4d41186d73dde6, type: 3}
+  m_Name: Second Dialog
+  m_EditorClassIdentifier: 
+  dialogItems:
+  - dialogText: Thank you for saving us Mr. Crane
+    sound: {fileID: 8300000, guid: 38e7543cd6cc5f346a741831939c233b, type: 3}
+    panel: {fileID: 2800000, guid: df1e95a43745bdc47978f56853ba2275, type: 3}
+    leftWrite: 1
+  - dialogText: khhrrrrrrrr
+    sound: {fileID: 8300000, guid: e9d9796a0e479864280539076cbe0ac1, type: 3}
+    panel: {fileID: 2800000, guid: d335a4c6c2de86645939477ecc5c8a18, type: 3}
+    leftWrite: 0
+  - dialogText: 'best of luck to you too
+
+'
+    sound: {fileID: 8300000, guid: d936e343de947b24d8de2c88d013e5b7, type: 3}
+    panel: {fileID: 2800000, guid: df1e95a43745bdc47978f56853ba2275, type: 3}
+    leftWrite: 1
+  isLoopable: 0
+  isOrdered: 1
+  nextDialog: {fileID: 0}

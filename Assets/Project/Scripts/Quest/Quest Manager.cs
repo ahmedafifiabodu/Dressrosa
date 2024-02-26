@@ -7,14 +7,18 @@ public class QuestManager : MonoBehaviour
 {
     [SerializeField] internal List<Quest> quests = new();
 
-    [Header("UI")]
+    [Header("Quest UI")]
     [SerializeField] private GameObject _questCanvas;
 
     [SerializeField] private Sprite _defultQuestIcon;
     [SerializeField] private Image _questIcon;
     [SerializeField] private TextMeshProUGUI _questName;
-    [SerializeField] private TextMeshProUGUI _objectiveName;
     [SerializeField] private TextMeshProUGUI _objectiveDescription;
+
+    [Header("Objective UI")]
+    [SerializeField] private GameObject _objectiveObject;
+
+    [SerializeField] private TextMeshProUGUI _objectiveName;
 
     internal int lastCompletedQuestIndex = -1;
 
@@ -80,6 +84,9 @@ public class QuestManager : MonoBehaviour
 
     internal void UpdateUI()
     {
+        int activeQuestIndex = GetActiveQuestIndex();
+        _objectiveObject.SetActive(activeQuestIndex != -1);
+
         if (lastCompletedQuestIndex != -1)
         {
             // If there is a completed quest
@@ -91,7 +98,6 @@ public class QuestManager : MonoBehaviour
         }
         else
         {
-            int activeQuestIndex = GetActiveQuestIndex();
             if (activeQuestIndex != -1)
             {
                 // If there is an active quest
