@@ -37,6 +37,12 @@ public class SecretArea : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = new Color(255, 255, 255, 1);
+    }
+
     private void OnDisable()
     {
         if (fadeOutCoroutine != null)

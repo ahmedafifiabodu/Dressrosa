@@ -47,6 +47,8 @@ public class QuestManager : MonoBehaviour
             foreach (var objective in quest.objectives)
                 objective.isCompleted = false;
         }
+
+        CheckTheQuests();
     }
 
     private void Start() => ResetQuests();

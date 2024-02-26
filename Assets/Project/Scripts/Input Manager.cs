@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour
 
     internal InputSystem _playerInput;
     private InputSystem.PlayerActions _playerActions;
-    private AudioManager audioManager;
 
     private bool isQuestOpen = false;
     private bool isInventoryOpen = false;
@@ -23,15 +22,13 @@ public class InputManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        audioManager = AudioManager.Instance;
-
         _playerInput = new InputSystem();
 
         _playerActions = _playerInput.Player;
 
         _playerActions.Fire.performed += _ => _playerMovement.Fire();
 
-        _playerActions.Movement.performed += _ => audioManager.PlayWalkSFX(audioManager.walk);
+        _playerActions.Movement.performed += _ => AudioManager.Instance.PlayWalkSFX(AudioManager.Instance.walk);
 
         _playerActions.Quest.performed += _ =>
         {
