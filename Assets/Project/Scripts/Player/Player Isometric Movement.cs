@@ -10,7 +10,6 @@ public class PlayerIsometricMovement : MonoBehaviour
     [SerializeField] private float _crippledSpeed = 0.5f;
     [SerializeField] private TimeTravelSystem travelEffecrt;
     [SerializeField] private Animator _animator;
-    [SerializeField] private float _animatorSpeed;
 
     private PlayerInformation _playerInformation;
     private DialogManager _dialogManager;

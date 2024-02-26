@@ -42,9 +42,11 @@ public class DialogController : MonoBehaviour
             }
             else
             {
-                GetComponent<DialogController>().enabled = false;
                 _dialogManager.IsDialogActive = false;
+                GetComponent<DialogController>().enabled = false;
             }
+
+            GetComponent<BoxCollider2D>().enabled = false;
 
             return;
         }
