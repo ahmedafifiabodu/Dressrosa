@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,7 @@ public class TimeTravelSystem : MonoBehaviour
     private PlayerInformation _playerInformation;
     private AudioManager _audioManager;
     private DistanceShader _travelEffect;
+    private bool travel;
 
     internal bool canTravel;
     internal bool effectActivated;
@@ -30,6 +33,7 @@ public class TimeTravelSystem : MonoBehaviour
 
     private void Start()
     {
+        travel = false;
         canTravel = false;
         effectActivated = false;
 
@@ -46,12 +50,14 @@ public class TimeTravelSystem : MonoBehaviour
 
         if (effectActivated)
         {
+            StartCoroutine(waitBeforeTravel(0.2f));
             _audioManager.SFXSource.Stop();
             _audioManager.SFXSource.pitch = 2;
             _audioManager.PlaySFX(_audioManager.enterTimeTravel);
         }
         else
         {
+            StartCoroutine(waitBeforeTravel(1.3f));
             _audioManager.SFXSource.Stop();
             _audioManager.SFXSource.pitch = 2;
             _audioManager.PlaySFX(_audioManager.exitTimeTravel);
@@ -64,27 +70,32 @@ public class TimeTravelSystem : MonoBehaviour
     private void TravelEffect()
     {
         staminaBar.value = _playerInformation._energy;
-
         if (effectActivated)
         {
             staminaBar.gameObject.SetActive(true);
 
-            for (int i = 0; i < reverseWorld.Count; i++)
-                reverseWorld[i].SetActive(true);
+            if (travel == true)
+            {
+                for (int i = 0; i < reverseWorld.Count; i++)
+                    reverseWorld[i].SetActive(true);
 
-            for (int i = 0; i < baseWorld.Count; i++)
-                baseWorld[i].SetActive(false);
+                for (int i = 0; i < baseWorld.Count; i++)
+                    baseWorld[i].SetActive(false);
+            }
 
             _travelEffect.playerPosition = player.position;
             _travelEffect.distanceValue = Mathf.SmoothDamp(_travelEffect.distanceValue, 1, ref velocity, smoothTime);
         }
         else
         {
-            for (int i = 0; i < reverseWorld.Count; i++)
-                reverseWorld[i].SetActive(false);
+            if (travel == false)
+            {
+                for (int i = 0; i < reverseWorld.Count; i++)
+                    reverseWorld[i].SetActive(false);
 
-            for (int i = 0; i < baseWorld.Count; i++)
-                baseWorld[i].SetActive(true);
+                for (int i = 0; i < baseWorld.Count; i++)
+                    baseWorld[i].SetActive(true);
+            }
 
             _travelEffect.playerPosition = player.position;
             _travelEffect.distanceValue = Mathf.SmoothDamp(_travelEffect.distanceValue, 0, ref velocity, smoothTime);
@@ -92,5 +103,12 @@ public class TimeTravelSystem : MonoBehaviour
             if (_travelEffect.distanceValue < 0.9f)
                 staminaBar.gameObject.SetActive(false);
         }
+
+    }
+
+    IEnumerator waitBeforeTravel(float time)
+    {
+        yield return new WaitForSeconds(time);
+        travel = !travel;
     }
 }
