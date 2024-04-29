@@ -76,45 +76,6 @@ public class ClueSystem : MonoBehaviour
         }
     }
 
-    private void CheckForTimeTravel(List<Clues> obj)
-    {
-        if (_timeTravelSystem.canTravel == true && _timeTravelSystem.effectActivated == true)
-        {
-            // Find the first inactive clue
-            Clue firstInactiveClue = null;
-            foreach (var clues in obj)
-            {
-                if (clues.clues != null) // Check if clues is not null
-                {
-                    foreach (var clue in clues.clues)
-                    {
-                        if (!clue.clue.activeSelf && !completedClues.Contains(clue))
-                        {
-                            firstInactiveClue = clue;
-                            break;
-                        }
-                    }
-                }
-                if (firstInactiveClue != null)
-                    break;
-            }
-
-            // Activate the first inactive clue
-            firstInactiveClue?.clue.SetActive(true);
-        }
-        else
-        {
-            foreach (var clues in obj)
-            {
-                if (clues.clues != null) // Check if clues is not null
-                {
-                    foreach (var clue in clues.clues)
-                        clue.clue.SetActive(false);
-                }
-            }
-        }
-    }
-
     private void Update()
     {
         if (obj != null)

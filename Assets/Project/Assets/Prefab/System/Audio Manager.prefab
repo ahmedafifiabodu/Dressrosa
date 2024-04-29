@@ -53,12 +53,15 @@ MonoBehaviour:
   SFXSource: {fileID: 4960625795757352063}
   WalkSFXSource: {fileID: 3198201514427780895}
   dialogSource: {fileID: 5341118367221336923}
+  waterSource: {fileID: 0}
+  fireSource: {fileID: 0}
   background: {fileID: 8300000, guid: 917f0e2b545b7d14384041191dbb68b4, type: 3}
   walk: {fileID: 8300000, guid: 721da4c93c1b1f94eaf18e22212e5fb4, type: 3}
-  interact: {fileID: 0}
-  timetravel: {fileID: 0}
-  dialogSound: {fileID: 0}
-  win: {fileID: 0}
+  interact: {fileID: 8300000, guid: 72d4881d69766ce4eba848d9cb542d96, type: 3}
+  enterTimeTravel: {fileID: 8300000, guid: 73b898b813ccd9247b0063204a386281, type: 3}
+  exitTimeTravel: {fileID: 8300000, guid: 9e251b9060ef774488ebdc22a30fe567, type: 3}
+  water: {fileID: 8300000, guid: 69401b1ec6e033e4aa60ba118d5a6e08, type: 3}
+  fire: {fileID: 8300000, guid: 6ba20c56c9fd6d44d8ab8d8888706ae2, type: 3}
 --- !u!1 &4585931022389461503
 GameObject:
   m_ObjectHideFlags: 0

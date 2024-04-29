@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
-    public MonoBehaviour[] componentsToDisableOnPause; 
+    [SerializeField] private Canvas MenuPanel;
+    [SerializeField] private Canvas SettingsPanel;
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private MonoBehaviour[] componentsToDisableOnPause;
 
     private bool isPaused = false;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -30,10 +33,10 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Pause()
+    private void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
         isPaused = true;
 
         foreach (var component in componentsToDisableOnPause)
@@ -42,4 +45,17 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void Settings()
+    {
+        MenuPanel.gameObject.SetActive(false);
+        SettingsPanel.gameObject.SetActive(true);
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadSceneAsync(0);
+    }
+
+    public void Quit() => Application.Quit();
 }

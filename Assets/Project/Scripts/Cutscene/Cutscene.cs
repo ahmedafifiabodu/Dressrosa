@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Cutscene : MonoBehaviour
 {
+    [SerializeField] private Button skipButton;
     [SerializeField] private GameObject cutsceneParent;
     [SerializeField] private Image cutsceneBackground;
     [SerializeField] private Image cutsceneImage;
@@ -16,6 +17,7 @@ public class Cutscene : MonoBehaviour
 
     private InputManager _inputManager;
     private AudioManager _audioManager;
+    private bool _skipToNextImage = false;
 
     internal bool IsCutscenePlaying { get; private set; }
 
@@ -23,13 +25,6 @@ public class Cutscene : MonoBehaviour
     {
         _inputManager = InputManager.Instance;
         _audioManager = AudioManager.Instance;
-
-        // Set the size of the image to match the screen size
-        RectTransform rectTransformCutsceneImage = cutsceneImage.GetComponent<RectTransform>();
-        rectTransformCutsceneImage.sizeDelta = new Vector2(Screen.width, Screen.height);
-
-        RectTransform rectTransformBackground = cutsceneBackground.GetComponent<RectTransform>();
-        rectTransformBackground.sizeDelta = new Vector2(Screen.width, Screen.height);
     }
 
     public void StartCutscene()
@@ -39,17 +34,39 @@ public class Cutscene : MonoBehaviour
         cutsceneParent.SetActive(true);
         _inputManager._playerInput.Disable();
         _audioManager.PlaySFX(audioClip);
+
+        skipButton.onClick.AddListener(SkipToNextImage);
+
         StartCoroutine(PlayCutscene());
     }
 
     private IEnumerator PlayCutscene()
     {
-        foreach (Sprite frame in cutsceneFrames)
+        for (int i = 0; i < cutsceneFrames.Count; i++)
         {
-            cutsceneImage.sprite = frame;
+            if (_skipToNextImage)
+            {
+                _skipToNextImage = false;
+                continue;
+            }
+
+            cutsceneImage.sprite = cutsceneFrames[i];
+
             yield return FadeIn();
-            yield return new WaitForSeconds(2);
+            if (_skipToNextImage)
+            {
+                _skipToNextImage = false;
+                continue;
+            }
+            yield return WaitForSecondsOrSkip(2);
+            if (_skipToNextImage)
+            {
+                _skipToNextImage = false;
+                continue;
+            }
             yield return FadeOut();
+
+            _skipToNextImage = false;
         }
 
         cutsceneParent.SetActive(false);
@@ -62,11 +79,14 @@ public class Cutscene : MonoBehaviour
         IsCutscenePlaying = false;
     }
 
+    public void SkipToNextImage() => _skipToNextImage = true;
+
     private IEnumerator FadeIn()
     {
         float t = 0;
         while (t < transitionTime)
         {
+            if (_skipToNextImage) yield break;
             t += Time.deltaTime;
             Color color = cutsceneImage.color;
             color.a = Mathf.Lerp(0, 1, t / transitionTime);
@@ -80,10 +100,22 @@ public class Cutscene : MonoBehaviour
         float t = 0;
         while (t < transitionTime)
         {
+            if (_skipToNextImage) yield break;
             t += Time.deltaTime;
             Color color = cutsceneImage.color;
             color.a = Mathf.Lerp(1, 0, t / transitionTime);
             cutsceneImage.color = color;
+            yield return null;
+        }
+    }
+
+    private IEnumerator WaitForSecondsOrSkip(float seconds)
+    {
+        float t = 0;
+        while (t < seconds)
+        {
+            if (_skipToNextImage) yield break;
+            t += Time.deltaTime;
             yield return null;
         }
     }

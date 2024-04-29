@@ -17,20 +17,20 @@ public class InteractableEditor : Editor
                 _interactable._useEvents = true;
                 _interactable.gameObject.AddComponent<InteractableEvents>();
             }
-        }
-        else
-        {
-            base.OnInspectorGUI();
-
-            if (_interactable._useEvents)
-            {
-                if (_interactable.gameObject.GetComponent<InteractableEvents>() == null)
-                    _interactable.gameObject.AddComponent<InteractableEvents>();
-            }
             else
             {
-                if (_interactable.gameObject.GetComponent<InteractableEvents>() != null)
-                    DestroyImmediate(_interactable.gameObject.GetComponent<InteractableEvents>());
+                base.OnInspectorGUI();
+
+                if (_interactable._useEvents)
+                {
+                    if (_interactable.gameObject.GetComponent<InteractableEvents>() == null)
+                        _interactable.gameObject.AddComponent<InteractableEvents>();
+                }
+                else
+                {
+                    if (_interactable.gameObject.GetComponent<InteractableEvents>() != null)
+                        DestroyImmediate(_interactable.gameObject.GetComponent<InteractableEvents>());
+                }
             }
         }
     }
